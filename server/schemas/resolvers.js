@@ -29,6 +29,39 @@ const resolvers = {
         .select('-__v -password')
         .populate('reviews');
     },
+    categories: async () => {
+      return await Category.find();
+    },
+    services: async (parent, { category, name }) => {
+      const params = {};
+
+      if (category) {
+        params.category = category;
+      }
+
+      if (name) {
+        params.name = {
+          $regex: name,
+        };
+      }
+
+      return await Service.find(params).populate('category');
+    },
+    service: async (parent, { _id }) => {
+      return await Service.findById(_id).populate('category');
+    },
+    order: async (parent, { _id }, context) => {
+      if (context.user) {
+        const user = await User.findById(context.user._id).populate({
+          path: 'orders.services',
+          populate: 'category',
+        });
+
+        return user.orders.id(_id);
+      }
+
+      throw new AuthenticationError('Not logged in');
+    },
   },
   Mutation: {
     addUser: async (parent, args) => {
@@ -62,6 +95,38 @@ const resolvers = {
         return review;
       }
       throw new AuthenticationError('You need to be logged in!');
+    },
+    addOrder: async (parent, { services }, context) => {
+      console.log(context);
+      if (context.user) {
+        const order = new Order({ services });
+
+        await User.findByIdAndUpdate(context.user._id, {
+          $push: { orders: order },
+        });
+
+        return order;
+      }
+
+      throw new AuthenticationError('Not logged in');
+    },
+    updateUser: async (parent, args, context) => {
+      if (context.user) {
+        return await User.findByIdAndUpdate(context.user._id, args, {
+          new: true,
+        });
+      }
+
+      throw new AuthenticationError('Not logged in');
+    },
+    updateService: async (parent, { _id, quantity }) => {
+      const decrement = Math.abs(quantity) * -1;
+
+      return await Service.findByIdAndUpdate(
+        _id,
+        { $inc: { quantity: decrement } },
+        { new: true }
+      );
     },
   },
 };
