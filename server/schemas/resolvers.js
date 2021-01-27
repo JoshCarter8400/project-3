@@ -29,14 +29,11 @@ const resolvers = {
         .select('-__v -password')
         .populate('reviews');
     },
-    categories: async () => {
-      return await Category.find();
-    },
-    services: async (parent, { category, name }) => {
+    services: async (parent, { name }) => {
       const params = {};
 
-      if (category) {
-        params.category = category;
+      if (name) {
+        params.name = name;
       }
 
       if (name) {
@@ -45,16 +42,15 @@ const resolvers = {
         };
       }
 
-      return await Service.find(params).populate('category');
+      return await Service.find(params);
     },
     service: async (parent, { _id }) => {
-      return await Service.findById(_id).populate('category');
+      return await Service.findById(_id);
     },
     order: async (parent, { _id }, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id).populate({
           path: 'orders.services',
-          populate: 'category',
         });
 
         return user.orders.id(_id);
