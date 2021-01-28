@@ -1,16 +1,9 @@
-import React from 'react';
-import About from './components/Team';
+import React from "react";
+import Home from "./pages/Home";
+import LoginForm from "./pages/Login";
 
 function App() {
-  return (
-    <div>
-      <header>
-        <p>
-          <About />
-        </p>
-      </header>
-    </div>
-  );
+  return <Home />;
 }
 
 export default App;
