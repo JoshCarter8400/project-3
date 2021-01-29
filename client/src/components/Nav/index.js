@@ -13,7 +13,6 @@ import {
 import "semantic-ui-css/semantic.min.css";
 import { Link } from "react-router-dom";
 
-
 const { MediaContextProvider, Media } = createMedia({
   breakpoints: {
     mobile: 0,
@@ -51,24 +50,24 @@ class DesktopContainer extends Component {
               secondary={!fixed}
               size="large"
               color="teal"
-              
             >
               <Container>
-                <Menu.Item as={Link} active to='/'>
+                <Menu.Item as={Link} active to="/">
                   Home
                 </Menu.Item>
                 <Menu.Item as="a">Services</Menu.Item>
                 <Menu.Item as="a">Team</Menu.Item>
                 <Menu.Item as="a">Contact Us</Menu.Item>
                 <Menu.Item position="right">
-                  <Button as={Link} inverted={!fixed} to='/login'>
+                  <Button as={Link} inverted={!fixed} to="/login">
                     Log in
                   </Button>
                   <Button
-                    as="a"
-                    inverted={!fixed}
+                                        inverted={!fixed}
                     primary={fixed}
                     style={{ marginLeft: "0.5em" }}
+                    as={Link}
+                    to="/signup"
                   >
                     Sign Up
                   </Button>
@@ -109,29 +108,34 @@ class MobileContainer extends Component {
             onHide={this.handleSidebarHide}
             vertical
             visible={sidebarOpened}
+            color="teal"
           >
-            <Menu.Item as="a" active>
+            <Menu.Item as={Link} active to="/">
               Home
             </Menu.Item>
             <Menu.Item as="a">Services</Menu.Item>
             <Menu.Item as="a">Team</Menu.Item>
             <Menu.Item as="a">Contact Us</Menu.Item>
-            <Menu.Item as="a">Log in</Menu.Item>
-            <Menu.Item as="a">Sign Up</Menu.Item>
+            <Menu.Item as={Link} to="/login">
+              Log in
+            </Menu.Item>
+            <Menu.Item as={Link}
+                    to="/signup">Sign Up</Menu.Item>
           </Sidebar>
 
           <Sidebar.Pusher dimmed={sidebarOpened}>
-            <Segment inverted textAlign="center" vertical>
+            <Segment inverted textAlign="center" vertical color="teal">
               <Container>
                 <Menu inverted pointing secondary size="large">
                   <Menu.Item onClick={this.handleToggle}>
                     <Icon name="sidebar" />
                   </Menu.Item>
                   <Menu.Item position="right">
-                    <Button as="a" inverted>
+                    <Button as={Link} to="/login" inverted>
                       Log in
                     </Button>
-                    <Button as="a" inverted style={{ marginLeft: "0.5em" }}>
+                    <Button as={Link}
+                    to="/signup" inverted style={{ marginLeft: "0.5em" }}>
                       Sign Up
                     </Button>
                   </Menu.Item>

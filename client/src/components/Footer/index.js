@@ -8,6 +8,7 @@ import {
   Segment,
 } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
+import { Link } from "react-router-dom";
 
 const Footer = () => {  
     return (
@@ -18,7 +19,7 @@ const Footer = () => {
           <Grid.Column width={3}>
             <Header inverted as="h4" content="About" />
             <List link inverted>
-              <List.Item as="a">Home</List.Item>
+              <List.Item as={Link} active to="/">Home</List.Item>
               <List.Item as="a">Services</List.Item>
               <List.Item as="a">Team</List.Item>
               <List.Item as="a">Contact Us</List.Item>

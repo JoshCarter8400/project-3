@@ -117,7 +117,7 @@ const Home = () => (
               "I shouldn't have gone with their competitor."
             </Header>
             <p style={{ fontSize: "1.33em" }}>
-              <Image avatar src="client\public\images\web-application.jpg" />
+              <Image avatar src="\images\web-application.jpg" />
               CEO of the Internet
             </p>
           </Grid.Column>
