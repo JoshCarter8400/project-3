@@ -11,6 +11,8 @@ import {
   Visibility,
 } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
+import { Link } from "react-router-dom";
+
 
 const { MediaContextProvider, Media } = createMedia({
   breakpoints: {
@@ -52,14 +54,14 @@ class DesktopContainer extends Component {
               
             >
               <Container>
-                <Menu.Item as="a" active>
+                <Menu.Item as={Link} active to='/'>
                   Home
                 </Menu.Item>
                 <Menu.Item as="a">Services</Menu.Item>
                 <Menu.Item as="a">Team</Menu.Item>
                 <Menu.Item as="a">Contact Us</Menu.Item>
                 <Menu.Item position="right">
-                  <Button as="a" inverted={!fixed}>
+                  <Button as={Link} inverted={!fixed} to='/login'>
                     Log in
                   </Button>
                   <Button

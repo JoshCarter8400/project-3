@@ -57,8 +57,7 @@ HomepageHeading.propTypes = {
 
 const Home = () => (
   <div>
-    <Navbar />
-    <Segment
+        <Segment
       inverted
       color="blue"
       textAlign="center"
@@ -90,7 +89,7 @@ const Home = () => (
               bordered
               rounded
               size="large"
-              src="client\public\images\web-application.jpg"
+              src="\images\web-application.jpg"
             />
           </Grid.Column>
         </Grid.Row>
