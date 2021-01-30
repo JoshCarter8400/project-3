@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 //import pages
-
+import Team from "./pages/Team";
 import Home from "./pages/Home";
 import LoginForm from "./pages/Login";
 import SignUpForm from "./pages/Signup";
@@ -20,6 +20,7 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route exact path="/login" component={LoginForm} />
             <Route exact path="/signup" component={SignUpForm} />
+            <Route exact path="/team" component={Team} />
           </Switch>
         </Navbar>
       </div>
