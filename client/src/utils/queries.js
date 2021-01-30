@@ -74,6 +74,21 @@ export const QUERY_USER = gql`
   }
 `;
 
+export const QUERY_ME = gql`
+  {
+    me {
+      _id
+      username
+      email
+      reviews {
+        _id
+        reviewText
+        createdAt
+      }
+    }
+  }
+`;
+
 export const QUERY_CHECKOUT = gql`
   query getCheckout($services: [ID]!) {
     checkout(services: $services) {
