@@ -18,7 +18,7 @@ const Team = () => (
   <div>
        
     <Segment style={{ padding: "8em 0em" }} vertical>
-      <Grid container stackable verticalAlign="middle">
+      <Grid  container stackable verticalAlign="middle">
         <Grid.Row>
           <Grid.Column width={8}>
             <Header as="h3" style={{ fontSize: "2em" }}>
@@ -29,15 +29,12 @@ const Team = () => (
             </p>
           </Grid.Column>
         <Grid.Column floated="right" width={6}>
-        <Card>
-        <Image src='/images/web-application.jpg' wrapped ui={false} />
+        <Card >
+        <Image src='/images/josh.jfif' wrapped ui={false} />
         <Card.Content>
-            <Card.Header>Josh</Card.Header>
-            <Card.Meta>
-                <span className='date'>Developing since 1931</span>
-            </Card.Meta>
+            <Card.Header>Developing since 1931</Card.Header>
             <Card.Description>
-                Javescript <br/>
+                javascript <br/>
                 Html <br/>
                 CSS <br/>
                 MERN<br/>
@@ -45,24 +42,22 @@ const Team = () => (
         </Card.Content>
         <Card.Content extra>
             <a href="https://github.com/JoshCarter8400">
-            <Icon name='user' />
-            Github
+            <Icon name='github' />
+            Github 
              </a>
         </Card.Content>
         </Card>
           </Grid.Column>
         </Grid.Row>
+        <Divider></Divider>
         <Grid.Row>
         <Grid.Column floated="left" width={6}>
         <Card>
-        <Image src='/images/web-application.jpg' wrapped ui={false} />
+        <Image src='/images/chris.jfif' wrapped ui={false} />
         <Card.Content>
-            <Card.Header>Chris</Card.Header>
-            <Card.Meta>
-                <span className='date'>Developing since 131</span>
-            </Card.Meta>
+            <Card.Header>Developing since 131</Card.Header>
             <Card.Description>
-                Javescript <br/>
+                javascript <br/>
                 Html <br/>
                 CSS <br/>
                 MERN<br/>
@@ -70,7 +65,7 @@ const Team = () => (
         </Card.Content>
         <Card.Content extra>
             <a href="https://github.com/csouthwick">
-            <Icon name='user' />
+            <Icon name='github' />
             Github
              </a>
         </Card.Content>
@@ -86,6 +81,7 @@ const Team = () => (
           </Grid.Column>
           
         </Grid.Row>
+        <Divider></Divider>
         <Grid.Row>
           <Grid.Column width={8}>
             <Header as="h3" style={{ fontSize: "2em" }}>
@@ -97,14 +93,11 @@ const Team = () => (
           </Grid.Column>
           <Grid.Column floated="right" width={6}>
           <Card>
-    <Image src='/images/web-application.jpg' wrapped ui={false} />
+    <Image src='/images/lucas.png' wrapped ui={false} />
     <Card.Content>
-      <Card.Header>Lucas</Card.Header>
-      <Card.Meta>
-        <span className='date'>Developing since 2020</span>
-      </Card.Meta>
+      <Card.Header>Developing since 2020</Card.Header>
       <Card.Description>
-        Javescript <br/>
+        javascript <br/>
         Html <br/>
         CSS <br/>
         MERN<br/>
@@ -112,22 +105,22 @@ const Team = () => (
     </Card.Content>
     <Card.Content extra>
       <a href="https://github.com/lucasmbarros">
-        <Icon name='user' />
+        <Icon name='github' />
         Github
       </a>
     </Card.Content>
   </Card>
           </Grid.Column>
+          </Grid.Row>
+            <Divider></Divider>
+          <Grid.Row>
           <Grid.Column floated="left" width={6}>
         <Card>
-        <Image src='/images/web-application.jpg' wrapped ui={false} />
+        <Image src='/images/gil.png' wrapped ui={false} />
         <Card.Content>
-            <Card.Header>Gil</Card.Header>
-            <Card.Meta>
-                <span className='date'>Developing since 2020.5</span>
-            </Card.Meta>
+            <Card.Header>Developing since 2020.5</Card.Header>
             <Card.Description>
-                Javescript <br/>
+                javascript <br/>
                 Html <br/>
                 CSS <br/>
                 MERN<br/>
@@ -135,7 +128,7 @@ const Team = () => (
         </Card.Content>
         <Card.Content extra>
             <a href="https://github.com/gilabadio">
-            <Icon name='user' />
+            <Icon name='github' />
             Github
              </a>
         </Card.Content>
