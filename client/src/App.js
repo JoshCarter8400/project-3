@@ -10,18 +10,19 @@ import SignUpForm from "./pages/Signup";
 //import components
 
 import Navbar from "./components/Nav/index";
+import Footer from "./components/Footer/index";
 
 function App() {
   return (
     <Router>
       <div>
-        <Navbar>
+        <Navbar />
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/login" component={LoginForm} />
             <Route exact path="/signup" component={SignUpForm} />
           </Switch>
-        </Navbar>
+        <Footer />
       </div>
     </Router>
   );

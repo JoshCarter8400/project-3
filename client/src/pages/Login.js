@@ -55,7 +55,6 @@ const LoginForm = () => (
         </Button>
       </Grid.Column>
     </Grid>
-    <Footer />
   </div>
 );
 

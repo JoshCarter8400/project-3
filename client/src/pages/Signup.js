@@ -61,7 +61,6 @@ const SignUpForm = () => (
         </Message>
       </Grid.Column>
     </Grid>
-    <Footer />
   </div>
 );
 
