@@ -21,11 +21,10 @@ const Team = () => (
         <Grid.Row>
           <Grid.Column width={8}>
             <Header as="h3" style={{ fontSize: "2em" }}>
-              We Help Companies and Entrepreneurs
+              Josh Carter
             </Header>
             <p style={{ fontSize: "1.33em" }}>
-              We can give you the superpowers to do things that you always
-              dreamed of. Let us delight your customers and empower your needs.
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
             </p>
           </Grid.Column>
           <Grid.Column floated="right" width={6}>
@@ -48,22 +47,20 @@ const Team = () => (
           </Grid.Column>
           <Grid.Column width={8}>
             <Header as="h3" style={{ fontSize: "2em" }}>
-              We Help Companies and Entrepreneurs
+              Chris Southwick
             </Header>
             <p style={{ fontSize: "1.33em" }}>
-              We can give you the superpowers to do things that you always
-              dreamed of. Let us delight your customers and empower your needs.
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
             </p>
           </Grid.Column>
           
         </Grid.Row><Grid.Row>
           <Grid.Column width={8}>
             <Header as="h3" style={{ fontSize: "2em" }}>
-              We Help Companies and Entrepreneurs
+                Lucas Barros
             </Header>
             <p style={{ fontSize: "1.33em" }}>
-              We can give you the superpowers to do things that you always
-              dreamed of. Let us delight your customers and empower your needs.
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
             </p>
           </Grid.Column>
           <Grid.Column floated="right" width={6}>
@@ -85,11 +82,10 @@ const Team = () => (
           </Grid.Column> 
           <Grid.Column width={8}>
             <Header as="h3" style={{ fontSize: "2em" }}>
-              We Help Companies and Entrepreneurs
+              Gil B. Abadio
             </Header>
             <p style={{ fontSize: "1.33em" }}>
-              We can give you the superpowers to do things that you always
-              dreamed of. Let us delight your customers and empower your needs.
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
             </p>
           </Grid.Column>
          
