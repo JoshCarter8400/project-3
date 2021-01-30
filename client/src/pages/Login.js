@@ -5,14 +5,10 @@ import {
   Grid,
   Header,
   Image,
-  Message,
   Segment,
 } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
-//import components
-
-import Footer from "../components/Footer/index";
 
 const LoginForm = () => (
   <div>

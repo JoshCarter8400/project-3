@@ -10,9 +10,6 @@ import {
   Checkbox,
 } from "semantic-ui-react";
 
-//import components
-
-import Footer from "../components/Footer/index";
 
 const SignUpForm = () => (
   <div>

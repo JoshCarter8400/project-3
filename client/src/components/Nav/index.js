@@ -63,13 +63,24 @@ class DesktopContainer extends Component {
                     Log in
                   </Button>
                   <Button
-                                        inverted={!fixed}
+                    inverted={!fixed}
                     primary={fixed}
                     style={{ marginLeft: "0.5em" }}
                     as={Link}
                     to="/signup"
                   >
                     Sign Up
+                  </Button>
+                  <Button
+                    icon
+                    labelPosition="left"
+                    inverted={!fixed}
+                    style={{ marginLeft: "0.5em" }}
+                    as={Link}
+                    to="/profile"                    
+                  >
+                    <Icon name="user" />
+                    Username
                   </Button>
                 </Menu.Item>
               </Container>
@@ -119,8 +130,10 @@ class MobileContainer extends Component {
             <Menu.Item as={Link} to="/login">
               Log in
             </Menu.Item>
-            <Menu.Item as={Link}
-                    to="/signup">Sign Up</Menu.Item>
+            <Menu.Item as={Link} to="/signup">
+              Sign Up
+            </Menu.Item>
+            
           </Sidebar>
 
           <Sidebar.Pusher dimmed={sidebarOpened}>
@@ -134,10 +147,25 @@ class MobileContainer extends Component {
                     <Button as={Link} to="/login" inverted>
                       Log in
                     </Button>
-                    <Button as={Link}
-                    to="/signup" inverted style={{ marginLeft: "0.5em" }}>
+                    <Button
+                      as={Link}
+                      to="/signup"
+                      inverted
+                      style={{ marginLeft: "0.5em" }}
+                    >
                       Sign Up
                     </Button>
+                    <Button
+                    inverted
+                    icon
+                    labelPosition="left"
+                    style={{ marginLeft: "0.5em" }}
+                    as={Link}
+                    to="/profile"                    
+                  >
+                    <Icon name="user" />
+                    Username
+                  </Button>
                   </Menu.Item>
                 </Menu>
               </Container>

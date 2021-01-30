@@ -11,6 +11,7 @@ import SignUpForm from "./pages/Signup";
 
 import Navbar from "./components/Nav/index";
 import Footer from "./components/Footer/index";
+import Profile from "./pages/Profile";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route exact path="/login" component={LoginForm} />
             <Route exact path="/signup" component={SignUpForm} />
+            <Route exact path="/profile" component={Profile} />
           </Switch>
         <Footer />
       </div>
