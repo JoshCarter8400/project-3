@@ -8,11 +8,13 @@ import Auth from "../../utils/auth";
 import { useSelector, useDispatch } from 'react-redux';
 import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from "../../utils/actions";
 import "./style.css";
+import "semantic-ui-css/semantic.min.css";
+
+
 
 const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
 const Cart = () => {
-  //const [state, dispatch] = useStoreContext();
   const state = useSelector(state => state);
   const dispatch = useDispatch();
 
@@ -68,7 +70,7 @@ const Cart = () => {
       <div className="cart-closed" onClick={toggleCart}>
         <span
           role="img"
-          aria-label="trash">🛒</span>
+          aria-label="trash"><i class="shopping cart icon"></i></span>
       </div>
     );
   }
