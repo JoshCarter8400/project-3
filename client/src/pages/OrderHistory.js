@@ -1,8 +1,15 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { useQuery } from '@apollo/react-hooks';
-import { QUERY_USER } from '../utils/queries';
-import { Button, Grid, Header, Image, Segment } from 'semantic-ui-react';
+import React from "react";
+import { Link } from "react-router-dom";
+import { useQuery } from "@apollo/react-hooks";
+import { QUERY_USER } from "../utils/queries";
+import {
+  Button,
+  Divider,
+  Grid,
+  Header,
+  Image,
+  Segment,
+} from "semantic-ui-react";
 
 const OrderHistory = () => {
   const { data } = useQuery(QUERY_USER);

@@ -12,6 +12,7 @@ import LoginForm from './pages/Login';
 import SignUpForm from './pages/Signup';
 import Profile from './pages/Profile';
 import OrderHistory from './pages/OrderHistory';
+import SingleReview from './pages/SingleReview';
 
 //import components
 
@@ -34,7 +35,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div>
+        <>
           <Provider store={store}>
             <Navbar />
             <Switch>
@@ -44,10 +45,11 @@ function App() {
               <Route exact path="/profile" component={Profile} />
               <Route exact path="/team" component={Team} />
               <Route exact path="/orderHistory" component={OrderHistory} />
+              <Route exact path="/singleReview" component={SingleReview} />
             </Switch>
             <Footer />
           </Provider>
-        </div>
+        </>
       </Router>
     </ApolloProvider>
   );
