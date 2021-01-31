@@ -1,4 +1,4 @@
-const { User, Review } = require('../models');
+const { User, Review, Service } = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
 
@@ -29,20 +29,8 @@ const resolvers = {
         .select('-__v -password')
         .populate('reviews');
     },
-    services: async (parent, { name }) => {
-      const params = {};
-
-      if (name) {
-        params.name = name;
-      }
-
-      if (name) {
-        params.name = {
-          $regex: name,
-        };
-      }
-
-      return await Service.find(params);
+    services: async () => {
+      return Service.find();
     },
     service: async (parent, { _id }) => {
       return await Service.findById(_id);

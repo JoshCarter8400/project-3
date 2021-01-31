@@ -21,6 +21,7 @@ export const QUERY_ALL_SERVICES = gql`
       description
       price
       quantity
+      image
     }
   }
 `;

@@ -13,6 +13,7 @@ import SignUpForm from './pages/Signup';
 import Profile from './pages/Profile';
 import OrderHistory from './pages/OrderHistory';
 import SingleReview from './pages/SingleReview';
+import Services from './pages/Services';
 
 //import components
 
@@ -48,6 +49,7 @@ function App() {
               <Route exact path="/orderHistory" component={OrderHistory} />
               <Route exact path="/singleReview" component={SingleReview} />
               <Route exact path="/termsAndConditions" component={TermsAndConditions} />
+              <Route exact path="/services" component={Services} />
             </Switch>
             <Footer />
           </Provider>
