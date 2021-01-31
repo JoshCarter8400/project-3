@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import { ADD_USER } from '../utils/mutations';
+import { Link } from 'react-router-dom';
 import Auth from '../utils/auth';
 import {
   Button,
@@ -11,11 +12,14 @@ import {
   Message,
   Segment,
   Checkbox,
-  Link,
 } from 'semantic-ui-react';
 
 const SignUpForm = () => {
-  const [formState, setFormState] = { email: '', password: '' };
+  const [formState, setFormState] = useState({
+    email: '',
+    password: '',
+    username: '',
+  });
   const [addUSer] = useMutation(ADD_USER);
 
   const handleFormSubmit = async (event) => {
