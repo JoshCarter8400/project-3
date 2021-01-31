@@ -6,17 +6,11 @@ import { useQuery } from '@apollo/react-hooks';
 import { QUERY_USER } from '../utils/queries';
 import {
   Button,
-  Container,
   Divider,
   Grid,
   Header,
-  Icon,
   Image,
-  List,
-  Menu,
   Segment,
-  Sidebar,
-  Visibility,
 } from 'semantic-ui-react';
 
 class DesktopContainer extends Component {
@@ -52,7 +46,7 @@ const OrderHistory = () => {
     children: PropTypes.node,
   };
 
-  const { MediaContextProvider, Media } = createMedia({
+  const { MediaContextProvider } = createMedia({
     breakpoints: {
       mobile: 0,
       tablet: 768,
@@ -69,32 +63,32 @@ const OrderHistory = () => {
               <Grid.Column width={8}>
                 {user ? (
                   <>
-                    <h5 style={{ fontSize: '1.33em' }}>
+                    <Header as="h5" style={{ fontSize: '1.33em' }}>
                       Order History for {user.username}
-                    </h5>
+                    </Header>
                     {user.orders.map((order) => (
-                      <div key={order._id} className="my-2">
-                        <h3 style={{ fontSize: '2em' }}>
+                      <Divider key={order._id} className="my-2">
+                        <Header as="h3" style={{ fontSize: '2em' }}>
                           {new Date(
                             parseInt(order.purchaseDate)
                           ).toLocaleDateString()}
-                        </h3>
-                        <div style={{ fontSize: '1.33em' }}>
+                        </Header>
+                        <Divider style={{ fontSize: '1.33em' }}>
                           {order.services.map(
                             ({ _id, image, name, price }, index) => (
-                              <div key={index} className="card px-1 py-1">
+                              <Grid.Column width={6} key={index}>
                                 <Link to={`/services/${_id}`}>
-                                  <img alt={name} src={`/images/${image}`} />
+                                  <Image alt={name} src={`/images/${image}`} />
                                   <p>{name}</p>
                                 </Link>
-                                <div>
+                                <Divider>
                                   <span>${price}</span>
-                                </div>
-                              </div>
+                                </Divider>
+                              </Grid.Column>
                             )
                           )}
-                        </div>
-                      </div>
+                        </Divider>
+                      </Divider>
                     ))}
                   </>
                 ) : null}
