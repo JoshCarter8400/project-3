@@ -1,9 +1,7 @@
-import { createMedia } from '@artsy/fresnel';
-import PropTypes from 'prop-types';
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { useQuery } from '@apollo/react-hooks';
-import { QUERY_USER } from '../utils/queries';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { useQuery } from "@apollo/react-hooks";
+import { QUERY_USER } from "../utils/queries";
 import {
   Button,
   Divider,
@@ -11,22 +9,7 @@ import {
   Header,
   Image,
   Segment,
-} from 'semantic-ui-react';
-
-class DesktopContainer extends Component {
-  state = {};
-
-  hideFixedMenu = () => this.setState({ fixed: false });
-  showFixedMenu = () => this.setState({ fixed: true });
-}
-
-class MobileContainer extends Component {
-  state = {};
-
-  handleSidebarHide = () => this.setState({ sidebarOpened: false });
-
-  handleToggle = () => this.setState({ sidebarOpened: true });
-}
+} from "semantic-ui-react";
 
 const OrderHistory = () => {
   const { data } = useQuery(QUERY_USER);
@@ -35,75 +18,55 @@ const OrderHistory = () => {
   if (data) {
     user = data.user;
   }
-  const ResponsiveContainer = ({ children }) => (
-    <MediaContextProvider>
-      <DesktopContainer>{children}</DesktopContainer>
-      <MobileContainer>{children}</MobileContainer>
-    </MediaContextProvider>
-  );
-
-  ResponsiveContainer.propTypes = {
-    children: PropTypes.node,
-  };
-
-  const { MediaContextProvider } = createMedia({
-    breakpoints: {
-      mobile: 0,
-      tablet: 768,
-      computer: 1024,
-    },
-  });
 
   return (
     <>
-      <ResponsiveContainer>
-        <Segment style={{ padding: '8em 0em' }} vertical>
-          <Grid container stackable verticalAlign="middle">
-            <Grid.Row>
-              <Grid.Column width={8}>
-                {user ? (
-                  <>
-                    <Header as="h5" style={{ fontSize: '1.33em' }}>
-                      Order History for {user.username}
-                    </Header>
-                    {user.orders.map((order) => (
-                      <Divider key={order._id} className="my-2">
-                        <Header as="h3" style={{ fontSize: '2em' }}>
-                          {new Date(
-                            parseInt(order.purchaseDate)
-                          ).toLocaleDateString()}
-                        </Header>
-                        <Divider style={{ fontSize: '1.33em' }}>
-                          {order.services.map(
-                            ({ _id, image, name, price }, index) => (
-                              <Grid.Column width={6} key={index}>
-                                <Link to={`/services/${_id}`}>
-                                  <Image alt={name} src={`/images/${image}`} />
-                                  <p>{name}</p>
-                                </Link>
-                                <Divider>
-                                  <span>${price}</span>
-                                </Divider>
-                              </Grid.Column>
-                            )
-                          )}
-                        </Divider>
+      <Segment style={{ padding: "8em 0em" }} vertical>
+        <Grid container stackable verticalAlign="middle">
+          <Grid.Row>
+            <Grid.Column width={8}>
+              {user ? (
+                <>
+                  <Header as="h5" style={{ fontSize: "1.33em" }}>
+                    Order History for {user.username}
+                  </Header>
+                  {user.orders.map((order) => (
+                    <Divider key={order._id} className="my-2">
+                      <Header as="h3" style={{ fontSize: "2em" }}>
+                        {new Date(
+                          parseInt(order.purchaseDate)
+                        ).toLocaleDateString()}
+                      </Header>
+                      <Divider style={{ fontSize: "1.33em" }}>
+                        {order.services.map(
+                          ({ _id, image, name, price }, index) => (
+                            <Grid.Column width={6} key={index}>
+                              <Link to={`/services/${_id}`}>
+                                <Image alt={name} src={`/images/${image}`} />
+                                <p>{name}</p>
+                              </Link>
+                              <Divider>
+                                <span>${price}</span>
+                              </Divider>
+                            </Grid.Column>
+                          )
+                        )}
                       </Divider>
-                    ))}
-                  </>
-                ) : null}
-              </Grid.Column>
-            </Grid.Row>
-            <Grid.Row>
-              <Grid.Column textAlign="center">
-                <Button as={Link} to="/home" size="huge">
-                  Back To Homepage
-                </Button>
-              </Grid.Column>
-            </Grid.Row>
-          </Grid>
-        </Segment>
-      </ResponsiveContainer>
+                    </Divider>
+                  ))}
+                </>
+              ) : null}
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row>
+            <Grid.Column textAlign="center">
+              <Button as={Link} to="/" size="huge">
+                Back To Homepage
+              </Button>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </Segment>
     </>
   );
 };
