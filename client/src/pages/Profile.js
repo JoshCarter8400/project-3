@@ -14,8 +14,10 @@ import "semantic-ui-css/semantic.min.css";
 import { Link } from "react-router-dom";
 
 const Profile = () => {
+  // individual modal var
   const [changeEmailOpen, setChangeEmailOpen] = React.useState(false);
-  const [changeUsername, setChangeUsername] = React.useState(false);
+  const [changeUsername, setUsernameOpen] = React.useState(false);
+  const [changePassword, setPasswordOpen] = React.useState(false);
 
   return (
     <div>
@@ -83,14 +85,20 @@ const Profile = () => {
                   color="teal"
                   labelPosition="left"
                   fluid
-                  onClick={() => setChangeUsername(true)}
+                  onClick={() => setUsernameOpen(true)}
                 >
                   <Icon name="user" />
                   Change Username
                 </Button>
               </Segment>
               <Segment color="blue" inverted>
-                <Button icon color="teal" labelPosition="left" fluid>
+                <Button
+                  icon
+                  color="teal"
+                  labelPosition="left"
+                  fluid
+                  onClick={() => setPasswordOpen(true)}
+                >
                   <Icon name="lock" />
                   Change Password
                 </Button>
@@ -121,11 +129,11 @@ const Profile = () => {
             Confirm
           </Button>
         </Modal.Actions>
-        {/* username modal */}
       </Modal>
+      {/* username modal */}
       <Modal
-        onClose={() => setChangeUsername(false)}
-        onOpen={() => setChangeUsername(true)}
+        onClose={() => setUsernameOpen(false)}
+        onOpen={() => setUsernameOpen(true)}
         open={changeUsername}
         size="tiny"
       >
@@ -137,10 +145,33 @@ const Profile = () => {
           </Input>
         </Modal.Content>
         <Modal.Actions>
-          <Button negative onClick={() => setChangeUsername(false)}>
+          <Button negative onClick={() => setUsernameOpen(false)}>
             Cancel
           </Button>
-          <Button positive onClick={() => setChangeUsername(false)}>
+          <Button positive onClick={() => setUsernameOpen(false)}>
+            Confirm
+          </Button>
+        </Modal.Actions>
+      </Modal>
+      {/* Password modal */}
+      <Modal
+        onClose={() => setPasswordOpen(false)}
+        onOpen={() => setPasswordOpen(true)}
+        open={changePassword}
+        size="tiny"
+      >
+        <Modal.Header>Change your Password</Modal.Header>
+        <Modal.Content>
+          <Input iconPosition="left" placeholder="Enter new password" fluid>
+            <Icon name="lock" />
+            <input />
+          </Input>
+        </Modal.Content>
+        <Modal.Actions>
+          <Button negative onClick={() => setPasswordOpen(false)}>
+            Cancel
+          </Button>
+          <Button positive onClick={() => setPasswordOpen(false)}>
             Confirm
           </Button>
         </Modal.Actions>
