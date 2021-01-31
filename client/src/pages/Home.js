@@ -13,6 +13,7 @@ import {
 import "semantic-ui-css/semantic.min.css";
 
 
+
 /* Heads up!
  * HomepageHeading uses inline styling, however it's not the best practice. Use CSS or styled
  * components for such things.

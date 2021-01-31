@@ -8,6 +8,8 @@ import { useQuery } from '@apollo/react-hooks';
 import { QUERY_ALL_SERVICES } from '../utils/queries';
 import ServiceItem from '../components/ServiceItem';
 
+
+
 const Services = () => {
   const { loading, data } = useQuery(QUERY_ALL_SERVICES);
 

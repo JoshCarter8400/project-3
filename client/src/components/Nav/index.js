@@ -87,7 +87,7 @@ class DesktopContainer extends Component {
                     inverted={!fixed}
                     style={{ marginLeft: "0.5em" }}
                     as={Link}
-                    to=""                    
+                    to="/cart"                    
                   >
                     <Icon name="cart" />
                     
