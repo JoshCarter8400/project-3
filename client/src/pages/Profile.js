@@ -31,9 +31,21 @@ const Profile = () => {
                 </Header>
               </Grid.Row>
               <Card fluid>
+                
                 <Image src="\images\web-application.jpg" wrapped ui={false} />
+                <Button animated="fade" floated="right" >
+                      <Button.Content visible>
+                        <Icon name="pencil" />
+                      </Button.Content>
+                      <Button.Content hidden >Edit Description</Button.Content>
+                    </Button>
                 <Card.Content>
-                  <Card.Header>John Doe</Card.Header>
+                  
+                  <Card.Header>
+                    John Doe
+                    
+                  </Card.Header>
+
                   <Card.Meta>
                     <span className="date">Joined in 2015</span>
                   </Card.Meta>
