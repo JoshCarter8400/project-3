@@ -28,7 +28,7 @@ db.once('open', async () => {
     }, {
       name: 'SEO',
       description: 'Wondering how to get rich previews on social media sites and improve your site\'s standing with search engines? Search Engine Optimization, or SEO for short, helps other computer and servers understand your content and present the most relevent parts to prospecive users.',
-      image: 'seo-search-symbol.svg',
+      image: 'magnifying-glass.svg',
       price: 250
     }, {
       name: 'Accessibility',
