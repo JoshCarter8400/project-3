@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import { ADD_REVIEW } from '../../utils/mutations';
 import { QUERY_REVIEWS, QUERY_ME } from '../../utils/queries';
-import { Form, Icon } from 'semantic-ui-react';
+import { Form, Icon, Segment } from 'semantic-ui-react';
 
 const ReviewForm = () => {
   const [reviewText, setText] = useState('');
@@ -54,7 +54,7 @@ const ReviewForm = () => {
     }
   };
   return (
-    <div>
+    <Segment>
       <p className={`m-0 ${characterCount === 300 ? 'text-error' : ''}`}>
         Character count: {characterCount}/300
         {error && <span className="ml-2">Something Went Wrong...</span>}
@@ -72,7 +72,7 @@ const ReviewForm = () => {
           <Icon name="right arrow" />
         </Form.Button>
       </Form>
-    </div>
+    </Segment>
   );
 };
 
