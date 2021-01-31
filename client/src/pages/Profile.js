@@ -9,6 +9,7 @@ import {
   Icon,
   Button,
   Segment,
+  Form,
 } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
 import { Link } from "react-router-dom";
@@ -18,6 +19,7 @@ const Profile = () => {
   const [changeEmailOpen, setChangeEmailOpen] = React.useState(false);
   const [changeUsername, setUsernameOpen] = React.useState(false);
   const [changePassword, setPasswordOpen] = React.useState(false);
+  const [editDescription, setDescriptionOpen] = React.useState(false);
 
   return (
     <div>
@@ -31,21 +33,19 @@ const Profile = () => {
                 </Header>
               </Grid.Row>
               <Card fluid>
-                
                 <Image src="\images\web-application.jpg" wrapped ui={false} />
-                <Button animated="fade" floated="right" >
-                      <Button.Content visible>
-                        <Icon name="pencil" />
-                      </Button.Content>
-                      <Button.Content hidden >Edit Description</Button.Content>
-                    </Button>
+                <Button
+                  animated="fade"
+                  floated="right"
+                  onClick={() => setDescriptionOpen(true)}
+                >
+                  <Button.Content visible>
+                    <Icon name="pencil" />
+                  </Button.Content>
+                  <Button.Content hidden>Edit Description</Button.Content>
+                </Button>
                 <Card.Content>
-                  
-                  <Card.Header>
-                    John Doe
-                    
-                  </Card.Header>
-
+                  <Card.Header>John Doe</Card.Header>
                   <Card.Meta>
                     <span className="date">Joined in 2015</span>
                   </Card.Meta>
@@ -184,6 +184,36 @@ const Profile = () => {
             Cancel
           </Button>
           <Button positive onClick={() => setPasswordOpen(false)}>
+            Confirm
+          </Button>
+        </Modal.Actions>
+      </Modal>
+      {/* Description modal */}
+      <Modal
+        onClose={() => setDescriptionOpen(false)}
+        onOpen={() => setDescriptionOpen(true)}
+        open={editDescription}
+        size="tiny"
+      >
+        <Modal.Header>Edit your profile</Modal.Header>
+        <Modal.Content>
+          <Input iconPosition="left" placeholder="Enter your name" fluid>
+            <Icon name="address card" />
+            <input />
+          </Input>
+          <br />
+          <Form>
+            <Form.TextArea
+              label="About"
+              placeholder="Tell us more about you..."
+            />
+          </Form>
+        </Modal.Content>
+        <Modal.Actions>
+          <Button negative onClick={() => setDescriptionOpen(false)}>
+            Cancel
+          </Button>
+          <Button positive onClick={() => setDescriptionOpen(false)}>
             Confirm
           </Button>
         </Modal.Actions>
