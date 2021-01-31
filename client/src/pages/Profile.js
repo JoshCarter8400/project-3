@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import {
-  Divider,
   Grid,
   Header,
   Image,
@@ -14,26 +13,12 @@ import {
 import "semantic-ui-css/semantic.min.css";
 import { Link } from "react-router-dom";
 
-function modalReducer(state, action) {
-  switch (action.type) {
-    case "close":
-      return { open: false };
-    case "open":
-      return { open: true, size: action.size };
-    default:
-      throw new Error("Unsupported action...");
-  }
-}
-
 const Profile = () => {
-  const [state, dispatch] = React.useReducer(modalReducer, {
-    open: false,
-    size: undefined,
-  });
-  const { open, size } = state;
+  const [changeEmailOpen, setChangeEmailOpen] = React.useState(false);
+  const [changeUsername, setChangeUsername] = React.useState(false);
 
   return (
-    <div className="App">
+    <div>
       <Grid columns="equal">
         <Grid.Row stretched>
           <Grid.Column>
@@ -86,65 +71,26 @@ const Profile = () => {
                   color="teal"
                   labelPosition="left"
                   fluid
-                  onClick={() => dispatch({ type: "open", size: "mini" })}
+                  onClick={() => setChangeEmailOpen(true)}
                 >
                   <Icon name="mail" />
                   Change Email
                 </Button>
-                <Modal
-                  size={size}
-                  open={open}
-                  onClose={() => dispatch({ type: "close" })}
-                >
-                  <Modal.Header>Change your email</Modal.Header>
-                  <Modal.Content>
-                    <Input
-                      iconPosition="left"
-                      placeholder="Enter new email"
-                      fluid
-                    >
-                      <Icon name="at" />
-                      <input />
-                    </Input>
-                  </Modal.Content>
-                  <Modal.Actions>
-                    <Button
-                      negative
-                      onClick={() => dispatch({ type: "close" })}
-                    >
-                      Cancel
-                    </Button>
-                    <Button
-                      positive
-                      onClick={() => dispatch({ type: "close" })}
-                    >
-                      Confirm
-                    </Button>
-                  </Modal.Actions>
-                </Modal>
               </Segment>
               <Segment color="blue" inverted>
                 <Button
                   icon
-                  as={Link}
                   color="teal"
-                  to=""
                   labelPosition="left"
                   fluid
+                  onClick={() => setChangeUsername(true)}
                 >
                   <Icon name="user" />
                   Change Username
                 </Button>
               </Segment>
               <Segment color="blue" inverted>
-                <Button
-                  icon
-                  as={Link}
-                  color="teal"
-                  to=""
-                  labelPosition="left"
-                  fluid
-                >
+                <Button icon color="teal" labelPosition="left" fluid>
                   <Icon name="lock" />
                   Change Password
                 </Button>
@@ -153,6 +99,52 @@ const Profile = () => {
           </Grid.Column>
         </Grid.Row>
       </Grid>
+      {/* email modal */}
+      <Modal
+        onClose={() => setChangeEmailOpen(false)}
+        onOpen={() => setChangeEmailOpen(true)}
+        open={changeEmailOpen}
+        size="tiny"
+      >
+        <Modal.Header>Change your email</Modal.Header>
+        <Modal.Content>
+          <Input iconPosition="left" placeholder="Enter new email" fluid>
+            <Icon name="at" />
+            <input />
+          </Input>
+        </Modal.Content>
+        <Modal.Actions>
+          <Button negative onClick={() => setChangeEmailOpen(false)}>
+            Cancel
+          </Button>
+          <Button positive onClick={() => setChangeEmailOpen(false)}>
+            Confirm
+          </Button>
+        </Modal.Actions>
+        {/* username modal */}
+      </Modal>
+      <Modal
+        onClose={() => setChangeUsername(false)}
+        onOpen={() => setChangeUsername(true)}
+        open={changeUsername}
+        size="tiny"
+      >
+        <Modal.Header>Change your Username</Modal.Header>
+        <Modal.Content>
+          <Input iconPosition="left" placeholder="Enter new username" fluid>
+            <Icon name="user" />
+            <input />
+          </Input>
+        </Modal.Content>
+        <Modal.Actions>
+          <Button negative onClick={() => setChangeUsername(false)}>
+            Cancel
+          </Button>
+          <Button positive onClick={() => setChangeUsername(false)}>
+            Confirm
+          </Button>
+        </Modal.Actions>
+      </Modal>
     </div>
   );
 };
