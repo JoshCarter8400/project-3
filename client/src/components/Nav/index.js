@@ -82,6 +82,16 @@ class DesktopContainer extends Component {
                     <Icon name="user" />
                     Username
                   </Button>
+                  <Button
+                    icon                    
+                    inverted={!fixed}
+                    style={{ marginLeft: "0.5em" }}
+                    as={Link}
+                    to=""                    
+                  >
+                    <Icon name="cart" />
+                    
+                  </Button>
                 </Menu.Item>
               </Container>
             </Menu>
