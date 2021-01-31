@@ -12,6 +12,7 @@ import {
   Message,
   Segment,
   Checkbox,
+  Label,
 } from 'semantic-ui-react';
 
 const SignUpForm = () => {
@@ -87,7 +88,7 @@ const SignUpForm = () => {
           </Form>
           <Message>
             <Checkbox label="I agree to the" />{' '}
-            <a href="#">Terms and Conditions</a>
+            <Label as={Link} to="/termsAndConditions">Terms and Conditions</Label>
           </Message>
         </Grid.Column>
       </Grid>

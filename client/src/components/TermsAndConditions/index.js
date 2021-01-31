@@ -1,13 +1,14 @@
 import React from "react";
-import { Container, Header } from "semantic-ui-react";
+import { Container, Header, Segment } from "semantic-ui-react";
 
 const TermsAndConditions = () => (
+  <Segment>
   <Container text>
     <Header as="h2" textAlign="center">
       Terms and Conditions
     </Header>
     <p>
-      We are not responsible for anything. Cum sociis natoque penatibus et
+      We are not responsible for anything. Cum socis natoque penatibus et
       magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
       ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa
       quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget,
@@ -34,6 +35,7 @@ const TermsAndConditions = () => (
       Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi.
     </p>
   </Container>
+  </Segment>
 );
 
 export default TermsAndConditions;
