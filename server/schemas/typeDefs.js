@@ -43,7 +43,7 @@ const typeDefs = gql`
     user(username: String!): User
     reviews(username: String): [Review]
     review(_id: ID!): Review
-    services(name: String): [Service]
+    services: [Service]
     service(_id: ID!): Service
     order(_id: ID!): Order
     checkout(services: [ID]!): Checkout
