@@ -4,7 +4,7 @@ import { useQuery } from '@apollo/react-hooks';
 import { QUERY_REVIEW } from '../utils/queries';
 import ReviewForm from '../components/ReviewForm';
 import Auth from '../utils/auth';
-import { Card, Segment } from 'semantic-ui-react';
+import { Divider, Card, Segment } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 
 const SingleReview = () => {
@@ -16,7 +16,7 @@ const SingleReview = () => {
   const review = data?.review || {};
 
   if (loading) {
-    return <Segment>Loading...</Segment>;
+    return <Divider>Loading...</Divider>;
   }
 
   return (
