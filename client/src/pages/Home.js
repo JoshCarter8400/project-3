@@ -12,10 +12,6 @@ import {
 } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
 
-//import components
-
-import Navbar from "../components/Nav/index";
-import Footer from "../components/Footer/index";
 
 /* Heads up!
  * HomepageHeading uses inline styling, however it's not the best practice. Use CSS or styled
@@ -158,7 +154,6 @@ const Home = () => (
         </Button>
       </Container>
     </Segment>
-    <Footer />
   </div>
 );
 

@@ -10,19 +10,16 @@ import {
   Checkbox,
 } from "semantic-ui-react";
 
-//import components
-
-import Footer from "../components/Footer/index";
 
 const SignUpForm = () => (
   <div>
     <Grid textAlign="center" style={{ height: "100vh" }} verticalAlign="middle">
       <Grid.Column style={{ maxWidth: 450 }}>
-        <Header as="h2" color="blue" textAlign="center">
+        <Header as="h2" color="blue" textAlign="center" dividing>
           <Image src="\logo512.png" /> Register your account
         </Header>
         <Form size="large">
-          <Segment stacked>
+          <Segment color="blue" inverted>
             <Form.Input
               fluid
               icon="user"
@@ -61,7 +58,6 @@ const SignUpForm = () => (
         </Message>
       </Grid.Column>
     </Grid>
-    <Footer />
   </div>
 );
 

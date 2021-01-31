@@ -6,23 +6,26 @@ import Team from "./pages/Team";
 import Home from "./pages/Home";
 import LoginForm from "./pages/Login";
 import SignUpForm from "./pages/Signup";
+import Profile from "./pages/Profile";
 
 //import components
 
 import Navbar from "./components/Nav/index";
+import Footer from "./components/Footer/index";
 
 function App() {
   return (
     <Router>
       <div>
-        <Navbar>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/login" component={LoginForm} />
-            <Route exact path="/signup" component={SignUpForm} />
-            <Route exact path="/team" component={Team} />
-          </Switch>
-        </Navbar>
+        <Navbar />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/login" component={LoginForm} />
+          <Route exact path="/signup" component={SignUpForm} />
+          <Route exact path="/profile" component={Profile} />
+          <Route exact path="/team" component={Team} />
+        </Switch>
+        <Footer />
       </div>
     </Router>
   );
