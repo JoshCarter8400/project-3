@@ -18,6 +18,7 @@ import SingleReview from './pages/SingleReview';
 
 import Navbar from './components/Nav/index';
 import Footer from './components/Footer/index';
+import TermsAndConditions from './components/TermsAndConditions/index';
 
 const client = new ApolloClient({
   request: (operation) => {
@@ -46,6 +47,7 @@ function App() {
               <Route exact path="/team" component={Team} />
               <Route exact path="/orderHistory" component={OrderHistory} />
               <Route exact path="/singleReview" component={SingleReview} />
+              <Route exact path="/termsAndConditions" component={TermsAndConditions} />
             </Switch>
             <Footer />
           </Provider>
