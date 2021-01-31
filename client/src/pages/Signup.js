@@ -80,7 +80,7 @@ const SignUpForm = () => {
                 onChange={handleChange}
               />
 
-              <Button as={Link} to="/Home" color="teal" fluid size="large">
+              <Button as={Link} to="/" color="teal" fluid size="large">
                 Sign Up
               </Button>
             </Segment>
