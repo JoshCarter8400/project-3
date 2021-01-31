@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import LoginForm from "./pages/Login";
 import SignUpForm from "./pages/Signup";
 import Profile from "./pages/Profile";
+import OrderHistory from "./pages/OrderHistory";
 
 //import components
 
@@ -24,6 +25,7 @@ function App() {
           <Route exact path="/signup" component={SignUpForm} />
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/team" component={Team} />
+          <Route exact path="/orderHistory" component={OrderHistory} />
         </Switch>
         <Footer />
       </div>

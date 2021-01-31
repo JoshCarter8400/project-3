@@ -71,7 +71,7 @@ const Profile = () => {
                   icon
                   as={Link}
                   color="teal"
-                  to=""
+                  to="/orderHistory"
                   labelPosition="left"
                   fluid
                 >
