@@ -8,7 +8,6 @@ import {
   Segment,
   Divider,
 } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/react-hooks';
 import { LOGIN } from '../utils/mutations';
 import Auth from '../utils/auth';
@@ -51,6 +50,7 @@ const LoginForm = () => {
               icon="user"
               iconPosition="left"
               placeholder="E-mail address"
+              value={formState.email}
               onChange={handleChange}
             />
             <Form.Input
@@ -59,6 +59,7 @@ const LoginForm = () => {
               iconPosition="left"
               placeholder="Password"
               type="password"
+              value={formState.password}
               onChange={handleChange}
             />
 
@@ -68,7 +69,7 @@ const LoginForm = () => {
               </Divider>
             ) : null}
 
-            <Button as={Link} to="/" color="teal" fluid size="large">
+            <Button color="teal" fluid size="large">
               Login
             </Button>
             <Segment color="blue" inverted>
