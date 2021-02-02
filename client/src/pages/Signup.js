@@ -16,23 +16,22 @@ import {
 
 const SignUpForm = () => {
   const [formState, setFormState] = useState({
+    username: '',
     email: '',
     password: '',
-    username: '',
   });
-  const [addUSer] = useMutation(ADD_USER);
+  const [addUser, { error }] = useMutation(ADD_USER);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    const mutationResponse = await addUSer({
+    const mutationResponse = await addUser({
       variables: {
         email: formState.email,
         password: formState.password,
         username: formState.username,
       },
     });
-
-    const token = mutationResponse.data.addUSer.token;
+    const token = mutationResponse.data.addUser.token;
     Auth.login(token);
   };
 
@@ -45,53 +44,53 @@ const SignUpForm = () => {
   };
 
   return (
-    <div>
-      <Grid
-        textAlign="center"
-        style={{ height: '100vh' }}
-        verticalAlign="middle"
-      >
-        <Grid.Column style={{ maxWidth: 450 }}>
-          <Header as="h2" color="blue" textAlign="center" dividing>
-            <Image src="\logo512.png" /> Register your account
-          </Header>
-          <Form onSubmit={handleFormSubmit} size="large">
-            <Segment color="blue" inverted>
-              <Form.Input
-                fluid
-                icon="user"
-                iconPosition="left"
-                placeholder="Username"
-                onChange={handleChange}
-              />
-              <Form.Input
-                fluid
-                icon="mail"
-                iconPosition="left"
-                placeholder="E-mail address"
-                onChange={handleChange}
-              />
-              <Form.Input
-                fluid
-                icon="lock"
-                iconPosition="left"
-                placeholder="Password"
-                type="password"
-                onChange={handleChange}
-              />
+    <Grid textAlign="center" style={{ height: '100vh' }} verticalAlign="middle">
+      <Grid.Column style={{ maxWidth: 450 }}>
+        <Header as="h2" color="blue" textAlign="center" dividing>
+          <Image src="\logo512.png" /> Register your account
+        </Header>
+        <Form onSubmit={handleFormSubmit} size="large">
+          <Segment color="blue" inverted>
+            <Form.Input
+              fluid
+              type="text"
+              name="username"
+              icon="user"
+              iconPosition="left"
+              placeholder="Username"
+              onChange={handleChange}
+            />
+            <Form.Input
+              fluid
+              type="text"
+              name="email"
+              icon="mail"
+              iconPosition="left"
+              placeholder="E-mail address"
+              onChange={handleChange}
+            />
+            <Form.Input
+              fluid
+              type="text"
+              name="password"
+              icon="lock"
+              iconPosition="left"
+              placeholder="Password"
+              onChange={handleChange}
+            />
 
-              <Button as={Link} to="/" color="teal" fluid size="large">
-                Sign Up
-              </Button>
-            </Segment>
-          </Form>
-          <Message>
-            <Checkbox label="I agree to the" />{' '}
-            <a href="#">Terms and Conditions</a>
-          </Message>
-        </Grid.Column>
-      </Grid>
-    </div>
+            <Button as={Link} to="/" color="teal" fluid size="large">
+              Sign Up
+            </Button>
+          </Segment>
+        </Form>
+        {error && <Segment>Sign Up Failed</Segment>}
+        <Message>
+          <Checkbox label="I agree to the" />{' '}
+          <a href="#">Terms and Conditions</a>
+        </Message>
+      </Grid.Column>
+    </Grid>
   );
 };
 

@@ -17,6 +17,8 @@ import OrderHistory from './pages/OrderHistory';
 
 import Navbar from './components/Nav/index';
 import Footer from './components/Footer/index';
+import ReviewForm from './components/ReviewForm';
+import ReviewsList from './components/ReviewsList';
 
 const client = new ApolloClient({
   request: (operation) => {
@@ -44,6 +46,8 @@ function App() {
               <Route exact path="/profile" component={Profile} />
               <Route exact path="/team" component={Team} />
               <Route exact path="/orderHistory" component={OrderHistory} />
+              <Route exact path="/reviewForm" component={ReviewForm} />
+              <Route exact path="/ReviewsList" component={ReviewsList} />
             </Switch>
             <Footer />
           </Provider>
