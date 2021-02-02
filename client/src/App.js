@@ -23,6 +23,7 @@ import Footer from './components/Footer/index';
 import TermsAndConditions from './components/TermsAndConditions/index';
 import ReviewForm from './components/ReviewForm';
 import ReviewsList from './components/ReviewsList';
+import Cart from './components/Cart';
 
 const client = new ApolloClient({
   request: (operation) => {
@@ -56,6 +57,7 @@ function App() {
               <Route exact path="/services/:id" component={Detail} />
               <Route exact path="/reviewForm" component={ReviewForm} />
               <Route exact path="/ReviewsList" component={ReviewsList} />
+              <Route exact path="/cart" component={Cart}/>
             </Switch>
             <Footer />
           </Provider>

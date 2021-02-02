@@ -1,53 +1,52 @@
-import React from 'react';
-import {
-  Card,
-  Image,
-  Container,
-  Header,
-  Button
-} from "semantic-ui-react";
-import "semantic-ui-css/semantic.min.css";
-import { useParams } from 'react-router-dom';
-import { useQuery } from '@apollo/react-hooks';
-import { QUERY_SERVICE } from '../utils/queries';
-import { useEffect, useState } from "react";
-import Cart from "../components/Cart";
+import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { addToCart } from '../utils/cart-actions'
 
-import { idbPromise } from "../utils/helpers";
+ class Home extends Component{
+    
+    handleClick = (id)=>{
+        this.props.addToCart(id); 
+    }
 
-import { useDispatch, useSelector } from 'react-redux';
+    render(){
+        let serviceList = this.props.services.map(service=>{
+            return(
+                <div className="card" key={service.id}>
+                        <div className="card-image">
+                            <img src={service.img} alt={service.title}/>
+                            <span className="card-title">{service.title}</span>
+                            <span to="/" className="btn-floating halfway-fab waves-effect waves-light red" onClick={()=>{this.handleClick(service.id)}}><i className="material-icons">add</i></span>
+                        </div>
 
-const Detail = () => {
-  const { id: serviceId } = useParams();
-  const { loading, data } = useQuery(QUERY_SERVICE, {
-    variables: { serviceId }
-  });
+                        <div className="card-content">
+                            <p>{service.desc}</p>
+                            <p><b>Price: {service.price}$</b></p>
+                        </div>
+                 </div>
 
-  const service = data?.service || {};
+            )
+        })
 
-  if (loading) {
-    return <div>Loading...</div>;
+        return(
+            <div className="container">
+                <h3 className="center">Our services</h3>
+                <div className="box">
+                    {serviceList}
+                </div>
+            </div>
+        )
+    }
+}
+const mapStateToProps = (state)=>{
+    return {
+      services: state.services
+    }
   }
+const mapDispatchToProps= (dispatch)=>{
+    
+    return{
+        addToCart: (id)=>{dispatch(addToCart(id))}
+    }
+}
 
-  return (
-    <div>
-      <Container style={{ textAlign: "center" }}>
-        <Image src={require(`../assets/${service.image}`).default} size="small" centered style={{ marginTop: 2 + "em", marginBottom: 2 + "em" }} />
-        <Header style={{ marginTop: 1 + "em", textAlign: "center" }}>{service.name}</Header>
-        <p>
-          {service.description}
-        </p>
-        <p>
-          Price: ${service.price}
-          <br />
-          <Button  primary>Add to cart</Button>
-        </p>
-      </Container>
-      <p style={{ marginTop: 2 + "em", marginBottom: 2 + "em", textAlign: "center" }}>
-        Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
-      </p>
-    </div>
-  );
-};
-
-export default Detail;
+export default connect(mapStateToProps,mapDispatchToProps)(Home)
