@@ -66,6 +66,7 @@ const SignUpForm = () => {
                 placeholder="Username"
                 value={formState.username}
                 onChange={handleChange}
+                name="username"
               />
               <Form.Input
                 fluid

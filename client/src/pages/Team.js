@@ -13,7 +13,12 @@ import "semantic-ui-css/semantic.min.css";
 const Team = () => (
   <div>
        
-    <Segment style={{ padding: "8em 0em" }} vertical>
+    <Segment style={{ padding: "5em 0em" }} vertical>
+    <Divider horizontal>
+      <Header as='h1' style={{ fontSize: "4em" }}>        
+        Our Team
+      </Header>
+    </Divider>
       <Grid  container stackable verticalAlign="middle">
         <Grid.Row>
           <Grid.Column width={8}>
