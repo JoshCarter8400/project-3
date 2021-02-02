@@ -1,7 +1,6 @@
 import React from 'react';
 import {
-  CardGroup,
-  Header
+  CardGroup
 } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
 import { useQuery } from '@apollo/react-hooks';
@@ -18,13 +17,12 @@ const Services = () => {
   if (loading) {
     return <div>Loading...</div>;
   }
-  console.log(services);
 
   return (
     <div>
       <CardGroup centered stackable style={{marginTop: 2 + "em", marginBottom: 2 + "em"}}>
         {services && services.map(service => (
-          <ServiceItem service={service} />
+          <ServiceItem service={service} key={service._id} />
         ))}
       </CardGroup>
       <p style={{ marginTop: 2 + "em", marginBottom: 2 + "em", textAlign: "center" }}>

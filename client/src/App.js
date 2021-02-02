@@ -14,6 +14,7 @@ import Profile from './pages/Profile';
 import OrderHistory from './pages/OrderHistory';
 import SingleReview from './pages/SingleReview';
 import Services from './pages/Services';
+import Detail from './pages/Detail';
 
 //import components
 
@@ -50,6 +51,7 @@ function App() {
               <Route exact path="/singleReview" component={SingleReview} />
               <Route exact path="/termsAndConditions" component={TermsAndConditions} />
               <Route exact path="/services" component={Services} />
+              <Route exact path="/services/:id" component={Detail} />
             </Switch>
             <Footer />
           </Provider>

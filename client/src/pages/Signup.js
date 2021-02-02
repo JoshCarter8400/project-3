@@ -14,22 +14,23 @@ import {
   Checkbox,
   Label,
 } from 'semantic-ui-react';
+import 'semantic-ui-css/semantic.min.css';
 
 const SignUpForm = () => {
   const [formState, setFormState] = useState({
     email: '',
-    password: '',
     username: '',
+    password: '',
   });
-  const [addUSer] = useMutation(ADD_USER);
+  const [addUser] = useMutation(ADD_USER);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    const mutationResponse = await addUSer({
+    const mutationResponse = await addUser({
       variables: {
         email: formState.email,
-        password: formState.password,
         username: formState.username,
+        password: formState.password,
       },
     });
 
@@ -63,6 +64,7 @@ const SignUpForm = () => {
                 icon="user"
                 iconPosition="left"
                 placeholder="Username"
+                value={formState.username}
                 onChange={handleChange}
               />
               <Form.Input
@@ -70,6 +72,7 @@ const SignUpForm = () => {
                 icon="mail"
                 iconPosition="left"
                 placeholder="E-mail address"
+                value={formState.email}
                 onChange={handleChange}
               />
               <Form.Input
@@ -78,17 +81,20 @@ const SignUpForm = () => {
                 iconPosition="left"
                 placeholder="Password"
                 type="password"
+                value={formState.password}
                 onChange={handleChange}
               />
 
-              <Button as={Link} to="/" color="teal" fluid size="large">
+              <Button type="submit" color="teal" fluid size="large">
                 Sign Up
               </Button>
             </Segment>
           </Form>
           <Message>
             <Checkbox label="I agree to the" />{' '}
-            <Label as={Link} to="/termsAndConditions">Terms and Conditions</Label>
+            <Label as={Link} to="/termsAndConditions">
+              Terms and Conditions
+            </Label>
           </Message>
         </Grid.Column>
       </Grid>

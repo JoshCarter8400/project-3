@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Card, Image } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import { connect } from 'react-redux'
@@ -6,10 +7,12 @@ import { connect } from 'react-redux'
 const ServiceItem = ({ service }) => {
   return (
     <Card>
-      <Card.Content key={service._id}>
-        <Image src={require(`../../assets/${service.image}`).default} />
-        <Card.Header style={{marginTop: 1 + "em", textAlign: "center"}}>{service.name}</Card.Header>
-      </Card.Content>
+      <Link to={`/services/${service._id}`}>
+        <Card.Content key={service._id}>
+          <Image src={require(`../../assets/${service.image}`).default} />
+          <Card.Header style={{ marginTop: 1 + "em", textAlign: "center" }}>{service.name}</Card.Header>
+        </Card.Content>
+      </Link>
     </Card>
   );
 };

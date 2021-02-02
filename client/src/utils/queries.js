@@ -1,16 +1,16 @@
 import gql from 'graphql-tag';
 
-export const QUERY_SERVICES = gql`
-  query getServices($service: ID) {
-    services {
-      _id
-      name
-      description
-      price
-      quantity
-      image
-    }
+export const QUERY_SERVICE = gql`
+  query service($serviceId: ID!) {
+  service(_id: $serviceId){
+    _id
+    name
+    description
+    price
+    quantity
+    image
   }
+}
 `;
 
 export const QUERY_ALL_SERVICES = gql`
