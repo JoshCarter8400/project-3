@@ -14,26 +14,37 @@ import Auth from '../utils/auth';
 
 const LoginForm = () => {
   const [formState, setFormState] = useState({ email: '', password: '' });
-  const [login, { error }] = useMutation(LOGIN);
 
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      const mutationResponse = await login({
-        variables: { email: formState.email, password: formState.password },
-      });
-      const token = mutationResponse.data.login.token;
-      Auth.login(token);
-    } catch (e) {
-      console.log(e);
-    }
-  };
+  const [loginUser, { error }] = useMutation(LOGIN);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
+    setFormState({ ...formState, [name]: value });
+  };
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    // check if form has everything (as per react-bootstrap docs)
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    try {
+      const { data } = await loginUser({
+        variables: { ...formState },
+      });
+
+      Auth.login(data.login.token);
+    } catch (err) {
+      console.error(err);
+    }
+
     setFormState({
-      ...formState,
-      [name]: value,
+      email: '',
+      password: '',
     });
   };
 
@@ -48,8 +59,10 @@ const LoginForm = () => {
             <Form.Input
               fluid
               icon="user"
+              type="text"
               iconPosition="left"
               placeholder="E-mail address"
+              name="email"
               value={formState.email}
               onChange={handleChange}
             />
@@ -59,6 +72,7 @@ const LoginForm = () => {
               iconPosition="left"
               placeholder="Password"
               type="password"
+              name="password"
               value={formState.password}
               onChange={handleChange}
             />
