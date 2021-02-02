@@ -2,6 +2,7 @@ import react from 'react';
 import { Item } from 'semantic-ui-react';
 import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY} from "../../utils/actions";
 import {idbPromise} from "../../utils/helpers";
+import { useDispatch } from 'react-redux';
 
 const CartService = ({service}) => {
     
@@ -38,7 +39,7 @@ const onChange = (e) => {
 return (
     <div className="flex-row">
         <div>
-            <img src = {require(`../assets/${service.image}`).default} alt = "" />
+            <img src = {require(`../../assets/${service.image}`).default} alt = "" />
         </div>
         <div>
             <div>{service.name}, ${service.price}</div>
@@ -47,13 +48,13 @@ return (
                 <input 
                     type = "number"
                     placeholder = "1"
-                    value={item.purchaseQuantity}
+                    value={service.purchaseQuantity}
                     onChange={onChange}
                 />
                 <span
                     role="img"
                     aria-label="trash"
-                    onClick={() => removeFromCart(item)}
+                    onClick={() => removeFromCart(service)}
                 >
                     
                 </span>

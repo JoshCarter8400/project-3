@@ -13,6 +13,7 @@ import {
 import "semantic-ui-css/semantic.min.css";
 import { Link } from "react-router-dom";
 
+
 const { MediaContextProvider, Media } = createMedia({
   breakpoints: {
     mobile: 0,

@@ -52,6 +52,7 @@ function App() {
               <Route exact path="/termsAndConditions" component={TermsAndConditions} />
               <Route exact path="/services" component={Services} />
               <Route exact path="/services/:id" component={Detail} />
+              
             </Switch>
             <Footer />
           </Provider>

@@ -40,7 +40,7 @@ const Detail = () => {
         <p>
           Price: ${service.price}
           <br />
-          <Button onClick={addToCart} primary>Add to cart</Button>
+          <Button  primary>Add to cart</Button>
         </p>
       </Container>
       <p style={{ marginTop: 2 + "em", marginBottom: 2 + "em", textAlign: "center" }}>
