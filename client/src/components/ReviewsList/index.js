@@ -1,5 +1,6 @@
 import React from 'react';
-import { Card, Link, Grid, Header, Segment } from 'semantic-ui-react';
+import { Card, Grid, Header, Segment } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 import 'semantic-ui-css/semantic.min.css';
 
 const ReviewsList = ({ reviews, title }) => {

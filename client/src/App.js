@@ -21,6 +21,8 @@ import Detail from './pages/Detail';
 import Navbar from './components/Nav/index';
 import Footer from './components/Footer/index';
 import TermsAndConditions from './components/TermsAndConditions/index';
+import ReviewForm from './components/ReviewForm';
+import ReviewsList from './components/ReviewsList';
 
 const client = new ApolloClient({
   request: (operation) => {
@@ -52,7 +54,8 @@ function App() {
               <Route exact path="/termsAndConditions" component={TermsAndConditions} />
               <Route exact path="/services" component={Services} />
               <Route exact path="/services/:id" component={Detail} />
-              
+              <Route exact path="/reviewForm" component={ReviewForm} />
+              <Route exact path="/ReviewsList" component={ReviewsList} />
             </Switch>
             <Footer />
           </Provider>
