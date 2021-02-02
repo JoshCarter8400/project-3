@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, Image } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
+import { connect } from 'react-redux'
 
 const ServiceItem = ({ service }) => {
   return (
@@ -15,5 +16,6 @@ const ServiceItem = ({ service }) => {
     </Card>
   );
 };
+
 
 export default ServiceItem;
