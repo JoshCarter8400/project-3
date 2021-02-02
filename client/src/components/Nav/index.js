@@ -1,6 +1,6 @@
-import { createMedia } from "@artsy/fresnel";
-import PropTypes from "prop-types";
-import React, { Component } from "react";
+import { createMedia } from '@artsy/fresnel';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import {
   Button,
   Container,
@@ -9,9 +9,9 @@ import {
   Segment,
   Sidebar,
   Visibility,
-} from "semantic-ui-react";
-import "semantic-ui-css/semantic.min.css";
-import { Link } from "react-router-dom";
+} from 'semantic-ui-react';
+import 'semantic-ui-css/semantic.min.css';
+import { Link } from 'react-router-dom';
 
 const { MediaContextProvider, Media } = createMedia({
   breakpoints: {
@@ -44,7 +44,7 @@ class DesktopContainer extends Component {
         >
           <Segment inverted color="blue" textAlign="center" vertical>
             <Menu
-              fixed={fixed ? "top" : null}
+              fixed={fixed ? 'top' : null}
               inverted={!fixed}
               pointing={!fixed}
               secondary={!fixed}
@@ -52,12 +52,12 @@ class DesktopContainer extends Component {
               color="teal"
             >
               <Container>
-                <Menu.Item as={Link} active to="/">
-                  Home
-                </Menu.Item>
+                <Menu.Item as={Link} active to="/">Home</Menu.Item>
                 <Menu.Item as={Link} to="/services">Services</Menu.Item>
                 <Menu.Item as={Link} to="/team">Team</Menu.Item>
-                <Menu.Item as={Link} to="/singleReview">Reviews</Menu.Item>
+                <Menu.Item as="a">Contact Us</Menu.Item>
+                <Menu.Item as={Link} to="/reviewForm">Review Form</Menu.Item>
+                <Menu.Item as={Link} to="/reviewsList">Reviews List</Menu.Item>
                 <Menu.Item position="right">
                   <Button as={Link} inverted={!fixed} to="/login">
                     Log in
@@ -65,7 +65,7 @@ class DesktopContainer extends Component {
                   <Button
                     inverted={!fixed}
                     primary={fixed}
-                    style={{ marginLeft: "0.5em" }}
+                    style={{ marginLeft: '0.5em' }}
                     as={Link}
                     to="/signup"
                   >
@@ -75,22 +75,21 @@ class DesktopContainer extends Component {
                     icon
                     labelPosition="left"
                     inverted={!fixed}
-                    style={{ marginLeft: "0.5em" }}
+                    style={{ marginLeft: '0.5em' }}
                     as={Link}
-                    to="/profile"                    
+                    to="/profile"
                   >
                     <Icon name="user" />
                     Username
                   </Button>
                   <Button
-                    icon                    
+                    icon
                     inverted={!fixed}
-                    style={{ marginLeft: "0.5em" }}
+                    style={{ marginLeft: '0.5em' }}
                     as={Link}
-                    to="/cart"                    
+                    to="/cart"
                   >
                     <Icon name="cart" />
-                    
                   </Button>
                 </Menu.Item>
               </Container>
@@ -131,19 +130,11 @@ class MobileContainer extends Component {
             visible={sidebarOpened}
             color="teal"
           >
-            <Menu.Item as={Link} active to="/">
-              Home
-            </Menu.Item>
-            <Menu.Item as="a">Services</Menu.Item>
-            <Menu.Item as="a">Team</Menu.Item>
-            <Menu.Item as={Link} to="/singleReview">Reviews</Menu.Item>
-            <Menu.Item as={Link} to="/login">
-              Log in
-            </Menu.Item>
-            <Menu.Item as={Link} to="/signup">
-              Sign Up
-            </Menu.Item>
-            
+            <Menu.Item as={Link} active to="/">Home</Menu.Item>
+            <Menu.Item as={Link} to="/services">Services</Menu.Item>
+            <Menu.Item as={Link} to="/team">Team</Menu.Item>
+            <Menu.Item as={Link} to="/login">Log in</Menu.Item>
+            <Menu.Item as={Link} to="/signup">Sign Up</Menu.Item>
           </Sidebar>
 
           <Sidebar.Pusher dimmed={sidebarOpened}>
@@ -161,21 +152,21 @@ class MobileContainer extends Component {
                       as={Link}
                       to="/signup"
                       inverted
-                      style={{ marginLeft: "0.5em" }}
+                      style={{ marginLeft: '0.5em' }}
                     >
                       Sign Up
                     </Button>
                     <Button
-                    inverted
-                    icon
-                    labelPosition="left"
-                    style={{ marginLeft: "0.5em" }}
-                    as={Link}
-                    to="/profile"                    
-                  >
-                    <Icon name="user" />
-                    Username
-                  </Button>
+                      inverted
+                      icon
+                      labelPosition="left"
+                      style={{ marginLeft: '0.5em' }}
+                      as={Link}
+                      to="/profile"
+                    >
+                      <Icon name="user" />
+                      Username
+                    </Button>
                   </Menu.Item>
                 </Menu>
               </Container>
