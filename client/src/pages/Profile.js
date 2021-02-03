@@ -33,7 +33,7 @@ const Profile = () => {
                 </Header>
               </Grid.Row>
               <Card fluid>
-                <Image src="\images\web-application.jpg" wrapped ui={false} />
+                <Image src="\images\profile-picture.jpg" wrapped ui={false} />
                 <Button
                   animated="fade"
                   floated="right"

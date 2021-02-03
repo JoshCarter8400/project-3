@@ -15,9 +15,11 @@ const resolvers = {
       }
       throw new AuthenticationError('Not logged in');
     },
-    reviews: async (parent, { username }) => {
+    reviews: async (parent, { username }, context) => {
       const params = username ? { username } : {};
-      return Review.find(params).sort({ createdAt: -1 });
+      return Review.find({ username: context.user.username }).sort({
+        createdAt: -1,
+      });
     },
     review: async (parent, { _id }) => {
       return Review.findOne({ _id });
@@ -50,23 +52,23 @@ const resolvers = {
 
     checkout: async (parent, args, context) => {
       const url = new URL(context.headers.referer).origin;
-      const order = new Order({ products: args.products });
-      const { products } = await order.populate('products').execPopulate();
+      const order = new Order({ services: args.services });
+      const { services } = await order.populate('services').execPopulate();
 
       const line_items = [];
 
-      for (let i = 0; i < products.length; i++) {
+      for (let i = 0; i < services.length; i++) {
         // generate product id
-        const product = await stripe.products.create({
-          name: products[i].name,
-          description: products[i].description,
-          images: [`${url}/images/${products[i].image}`],
+        const service = await stripe.services.create({
+          name: services[i].name,
+          description: services[i].description,
+          images: [`${url}/assets/${services[i].image}`],
         });
 
         // generate price id using the product id
         const price = await stripe.prices.create({
-          product: product.id,
-          unit_amount: products[i].price * 100,
+          service: service.id,
+          unit_amount: service[i].price * 100,
           currency: 'usd',
         });
 
