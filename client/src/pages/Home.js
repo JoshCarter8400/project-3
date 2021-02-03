@@ -6,11 +6,11 @@ import {
   Divider,
   Grid,
   Header,
-  Icon,
   Image,
   Segment,
 } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
+import { Link } from 'react-router-dom';
 
 
 
@@ -28,7 +28,7 @@ const HomepageHeading = ({ mobile }) => (
         fontSize: mobile ? "2em" : "4em",
         fontWeight: "normal",
         marginBottom: 0,
-        marginTop: mobile ? "1.5em" : "3em",
+        marginTop: mobile ? "1.5em" : "1.5em",
       }}
     />
     <Header
@@ -40,11 +40,7 @@ const HomepageHeading = ({ mobile }) => (
         fontWeight: "normal",
         marginTop: mobile ? "0.5em" : "1.5em",
       }}
-    />
-    <Button size="huge" color="teal">
-      Learn How
-      <Icon name="right arrow" />
-    </Button>
+    />    
   </Container>
 );
 
@@ -58,7 +54,7 @@ const Home = () => (
       inverted
       color="blue"
       textAlign="center"
-      style={{ minHeight: 700, padding: "1em 0em" }}
+      style={{ minHeight: 400, padding: "1em 0em" }}
       vertical
     >
       <HomepageHeading />
@@ -92,7 +88,7 @@ const Home = () => (
         </Grid.Row>
         <Grid.Row>
           <Grid.Column textAlign="center">
-            <Button size="huge">Check Some Out</Button>
+            <Button as={Link} to="/team" size="huge">Get to Know Our Team</Button>
           </Grid.Column>
         </Grid.Row>
       </Grid>
@@ -101,21 +97,22 @@ const Home = () => (
     <Segment style={{ padding: "0em" }} vertical>
       <Grid celled="internally" columns="equal" stackable>
         <Grid.Row textAlign="center">
-          <Grid.Column style={{ paddingBottom: "5em", paddingTop: "5em" }}>
+          <Grid.Column style={{ paddingBottom: "2em", paddingTop: "2em" }}>
             <Header as="h3" style={{ fontSize: "2em" }}>
-              "What a Company"
+              "What a Company!!!"
             </Header>
             <p style={{ fontSize: "1.33em" }}>
-              That is what they all say about us
+            <Image size="tiny" avatar src="\images\internet-ceo.jpg" />
+              CEO of the Internet
             </p>
           </Grid.Column>
-          <Grid.Column style={{ paddingBottom: "5em", paddingTop: "5em" }}>
+          <Grid.Column style={{ paddingBottom: "2em", paddingTop: "2em" }}>
             <Header as="h3" style={{ fontSize: "2em" }}>
               "I shouldn't have gone with their competitor."
             </Header>
             <p style={{ fontSize: "1.33em" }}>
-              <Image avatar src="\images\web-application.jpg" />
-              CEO of the Internet
+              <Image size="tiny" avatar src="\images\all-people.jpg" />
+              This is what everyone says!
             </p>
           </Grid.Column>
         </Grid.Row>
@@ -131,9 +128,6 @@ const Home = () => (
           Instead of focusing on content creation and hard work, we have learned
           how to master the art of catering to your exact need.
         </p>
-        <Button as="a" size="large">
-          Read More
-        </Button>
 
         <Divider
           as="h4"
@@ -141,7 +135,7 @@ const Home = () => (
           horizontal
           style={{ margin: "3em 0em", textTransform: "uppercase" }}
         >
-          <a href="#">Other services</a>
+          Other services
         </Divider>
 
         <Header as="h3" style={{ fontSize: "2em" }}>
@@ -150,9 +144,6 @@ const Home = () => (
         <p style={{ fontSize: "1.33em" }}>
           We also offer consultation services in many forms
         </p>
-        <Button as="a" size="large">
-          I'm Still Quite Interested
-        </Button>
       </Container>
     </Segment>
   </div>
