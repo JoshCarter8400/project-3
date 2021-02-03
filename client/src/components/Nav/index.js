@@ -12,6 +12,7 @@ import {
 } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import { Link } from 'react-router-dom';
+import Auth from "../../utils/auth";
 
 const { MediaContextProvider, Media } = createMedia({
   breakpoints: {
@@ -34,7 +35,75 @@ class DesktopContainer extends Component {
   render() {
     const { children } = this.props;
     const { fixed } = this.state;
-
+    if (Auth.loggedIn()) {
+      return (
+        <Media greaterThan="mobile">
+          <Visibility
+            once={false}
+            onBottomPassed={this.showFixedMenu}
+            onBottomPassedReverse={this.hideFixedMenu}
+          >
+            <Segment inverted color="blue" textAlign="center" vertical>
+              <Menu
+                fixed={fixed ? 'top' : null}
+                inverted={!fixed}
+                pointing={!fixed}
+                secondary={!fixed}
+                size="large"
+                color="teal"
+              >
+                <Container>
+                  <Menu.Item as={Link} active to="/">
+                    Home
+                  </Menu.Item>
+                  <Menu.Item as={Link} to="/services">
+                    Services
+                  </Menu.Item>
+                  <Menu.Item as={Link} to="/team">
+                    Team
+                  </Menu.Item>
+                  <Menu.Item as="a">Contact Us</Menu.Item>
+                  <Menu.Item as={Link} to="/reviewForm">
+                    Review Form
+                  </Menu.Item>
+                  <Menu.Item as={Link} to="/ReviewsList">
+                    Reviews List
+                  </Menu.Item>
+                  <Menu.Item position="right">
+                    
+                    <Button
+                      icon
+                      labelPosition="left"
+                      inverted={!fixed}
+                      style={{ marginLeft: '0.5em' }}
+                      as={Link}
+                      to="/profile"
+                    >
+                      <Icon name="user" />
+                      Username
+                    </Button>
+                    <Button as={Link} to="/" onClick={() => Auth.logout()} inverted={!fixed} >
+                        Logout
+                      </Button>
+                    <Button
+                      icon
+                      inverted={!fixed}
+                      style={{ marginLeft: '0.5em' }}
+                      as={Link}
+                      to="/cart"
+                    >
+                      <Icon name="cart" />
+                    </Button>
+                  </Menu.Item>
+                </Container>
+              </Menu>
+            </Segment>
+          </Visibility>
+  
+          {children}
+        </Media>
+      );
+    } else {
     return (
       <Media greaterThan="mobile">
         <Visibility
@@ -83,17 +152,6 @@ class DesktopContainer extends Component {
                   </Button>
                   <Button
                     icon
-                    labelPosition="left"
-                    inverted={!fixed}
-                    style={{ marginLeft: '0.5em' }}
-                    as={Link}
-                    to="/profile"
-                  >
-                    <Icon name="user" />
-                    Username
-                  </Button>
-                  <Button
-                    icon
                     inverted={!fixed}
                     style={{ marginLeft: '0.5em' }}
                     as={Link}
@@ -110,6 +168,7 @@ class DesktopContainer extends Component {
         {children}
       </Media>
     );
+    }
   }
 }
 
@@ -127,8 +186,68 @@ class MobileContainer extends Component {
   render() {
     const { children } = this.props;
     const { sidebarOpened } = this.state;
-
-    return (
+    if (Auth.loggedIn()) {
+      return (
+        <Media as={Sidebar.Pushable} at="mobile">
+          <Sidebar.Pushable>
+            <Sidebar
+              as={Menu}
+              animation="overlay"
+              inverted
+              onHide={this.handleSidebarHide}
+              vertical
+              visible={sidebarOpened}
+              color="teal"
+            >
+              <Menu.Item as={Link} active to="/">
+                Home
+              </Menu.Item>
+              <Menu.Item as={Link} to="/services">
+                Services
+              </Menu.Item>
+              <Menu.Item as={Link} to="/team">
+                Team
+              </Menu.Item>
+              <Menu.Item as={Link} to="/" onClick={() => Auth.logout()}>
+                LogOut
+              </Menu.Item>
+              
+            </Sidebar>
+  
+            <Sidebar.Pusher dimmed={sidebarOpened}>
+              <Segment inverted textAlign="center" vertical color="teal">
+                <Container>
+                  <Menu inverted pointing secondary size="large">
+                    <Menu.Item onClick={this.handleToggle}>
+                      <Icon name="sidebar" />
+                    </Menu.Item>
+                    <Menu.Item position="right">
+                      <Button
+                        inverted
+                        icon
+                        labelPosition="left"
+                        style={{ marginLeft: '0.5em' }}
+                        as={Link}
+                        to="/profile"
+                      >
+                        <Icon name="user" />
+                        Username
+                      </Button>
+                      <Button as={Link} to="/" inverted onClick={() => Auth.logout()}>
+                        LogOut
+                      </Button>
+                    </Menu.Item>
+                  </Menu>
+                </Container>
+              </Segment>
+  
+              {children}
+            </Sidebar.Pusher>
+          </Sidebar.Pushable>
+        </Media>
+      );
+    } else {
+      return (
       <Media as={Sidebar.Pushable} at="mobile">
         <Sidebar.Pushable>
           <Sidebar
@@ -176,17 +295,7 @@ class MobileContainer extends Component {
                     >
                       Sign Up
                     </Button>
-                    <Button
-                      inverted
-                      icon
-                      labelPosition="left"
-                      style={{ marginLeft: '0.5em' }}
-                      as={Link}
-                      to="/profile"
-                    >
-                      <Icon name="user" />
-                      Username
-                    </Button>
+                    
                   </Menu.Item>
                 </Menu>
               </Container>
@@ -195,8 +304,9 @@ class MobileContainer extends Component {
             {children}
           </Sidebar.Pusher>
         </Sidebar.Pushable>
-      </Media>
-    );
+      </Media> )
+      
+    }
   }
 }
 

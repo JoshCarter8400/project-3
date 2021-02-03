@@ -12,7 +12,7 @@ const ReviewsList = ({}) => {
   console.log(reviews);
   // const service = data?.service || {};
 
-  if (!reviews.length) {
+  if (!reviews) {
     return <Header as="h2">No one has left a review yet</Header>;
   }
 
