@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import 'semantic-ui-css/semantic.min.css';
 
 const ReviewsList = ({ reviews, title }) => {
-  if (!reviews.length) {
+  if (!reviews) {
     return <Header as="h2">No one has left a review yet</Header>;
   }
 
