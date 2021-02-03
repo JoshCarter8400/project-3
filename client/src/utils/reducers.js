@@ -65,12 +65,6 @@ export const reducer = (state = initialState, action) => {
         cart: [],
       };
 
-    case TOGGLE_CART:
-      return {
-        ...state,
-        cartOpen: !state.cartOpen,
-      };
-
     default:
       return state;
   }

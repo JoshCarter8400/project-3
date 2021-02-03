@@ -41,7 +41,7 @@ const CartItem = ({ item }) => {
   return (
     <Segment>
       <Segment>
-        <Image src={`/assets/${item.image}`}></Image>
+        <Image src={require(`../../assets/${item.image}`).default}></Image>
       </Segment>
       <Segment>
         <Segment>

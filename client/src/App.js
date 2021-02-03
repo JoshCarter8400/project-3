@@ -23,6 +23,7 @@ import Footer from './components/Footer/index';
 import TermsAndConditions from './components/TermsAndConditions/index';
 import ReviewForm from './components/ReviewForm';
 import ReviewsList from './components/ReviewsList';
+import Cart from './components/Cart';
 
 const client = new ApolloClient({
   request: (operation) => {
@@ -51,11 +52,16 @@ function App() {
               <Route exact path="/team" component={Team} />
               <Route exact path="/orderHistory" component={OrderHistory} />
               <Route exact path="/singleReview" component={SingleReview} />
-              <Route exact path="/termsAndConditions" component={TermsAndConditions} />
+              <Route
+                exact
+                path="/termsAndConditions"
+                component={TermsAndConditions}
+              />
               <Route exact path="/services" component={Services} />
               <Route exact path="/services/:id" component={Detail} />
               <Route exact path="/reviewForm" component={ReviewForm} />
               <Route exact path="/ReviewsList" component={ReviewsList} />
+              <Route exact path="/cart" component={Cart} />
             </Switch>
             <Footer />
           </Provider>

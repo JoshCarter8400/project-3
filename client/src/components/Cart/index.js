@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import CartItem from '../CartItem';
 import Auth from '../../utils/auth';
-import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../../utils/actions';
+import { ADD_MULTIPLE_TO_CART } from '../../utils/actions';
 import { idbPromise } from '../../utils/helpers';
 import { QUERY_CHECKOUT } from '../../utils/queries';
 import { useLazyQuery } from '@apollo/react-hooks';
@@ -40,10 +40,6 @@ const Cart = () => {
     }
   }, [data]);
 
-  function toggleCart() {
-    dispatch({ type: TOGGLE_CART });
-  }
-
   function calculateTotal() {
     let sum = 0;
     state.cart.forEach((item) => {
@@ -66,19 +62,8 @@ const Cart = () => {
     });
   }
 
-  if (!state.cartOpen) {
-    return (
-      <Segment onClick={toggleCart}>
-        <span role="img" aria-label="trash">
-          🛒
-        </span>
-      </Segment>
-    );
-  }
-
   return (
     <Segment>
-      <Segment onClick={toggleCart}>close cart</Segment>
       <Header as="h2" style={{ fontSize: '1em' }}>
         Shopping Cart
       </Header>
