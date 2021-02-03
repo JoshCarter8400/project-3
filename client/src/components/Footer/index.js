@@ -22,7 +22,6 @@ const Footer = () => {
               <List.Item as={Link} active to="/">Home</List.Item>
               <List.Item as="a">Services</List.Item>
               <List.Item as="a">Team</List.Item>
-              <List.Item as="a">Contact Us</List.Item>
             </List>
           </Grid.Column>
           <Grid.Column width={3}>

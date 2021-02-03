@@ -55,7 +55,6 @@ class DesktopContainer extends Component {
                 <Menu.Item as={Link} active to="/">Home</Menu.Item>
                 <Menu.Item as={Link} to="/services">Services</Menu.Item>
                 <Menu.Item as={Link} to="/team">Team</Menu.Item>
-                <Menu.Item as="a">Contact Us</Menu.Item>
                 <Menu.Item as={Link} to="/reviewForm">Review Form</Menu.Item>
                 <Menu.Item as={Link} to="/reviewsList">Reviews List</Menu.Item>
                 <Menu.Item position="right">
