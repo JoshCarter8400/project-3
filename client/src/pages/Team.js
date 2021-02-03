@@ -61,6 +61,12 @@ const Team = () => (
                   Github
                 </a>
               </Card.Content>
+              <Card.Content extra>
+                <a href="/">
+                  <Icon name="mail" />
+                  joshcarter8400@gmail.com
+                </a>
+              </Card.Content>
             </Card>
           </Grid.Column>
         </Grid.Row>
@@ -88,6 +94,12 @@ const Team = () => (
                 <a href="https://github.com/csouthwick">
                   <Icon name="github" />
                   Github
+                </a>
+              </Card.Content>
+              <Card.Content extra>
+                <a href="/">
+                  <Icon name="mail" />
+                  csouthwick@live.com
                 </a>
               </Card.Content>
             </Card>
@@ -153,6 +165,12 @@ const Team = () => (
                   Github
                 </a>
               </Card.Content>
+              <Card.Content extra>
+                <a href="/">
+                  <Icon name="mail" />
+                  lucasmello.barros@gmail.com
+                </a>
+              </Card.Content>
             </Card>
           </Grid.Column>
         </Grid.Row>
@@ -180,6 +198,12 @@ const Team = () => (
                 <a href="https://github.com/gilabadio">
                   <Icon name="github" />
                   Github
+                </a>
+              </Card.Content>
+              <Card.Content extra>
+                <a href="/">
+                  <Icon name="mail" />
+                  gilabadio@gmail.com
                 </a>
               </Card.Content>
             </Card>
