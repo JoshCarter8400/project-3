@@ -28,7 +28,7 @@ const HomepageHeading = ({ mobile }) => (
         fontSize: mobile ? "2em" : "4em",
         fontWeight: "normal",
         marginBottom: 0,
-        marginTop: mobile ? "1.5em" : "3em",
+        marginTop: mobile ? "1.5em" : "1.5em",
       }}
     />
     <Header
@@ -54,7 +54,7 @@ const Home = () => (
       inverted
       color="blue"
       textAlign="center"
-      style={{ minHeight: 700, padding: "1em 0em" }}
+      style={{ minHeight: 400, padding: "1em 0em" }}
       vertical
     >
       <HomepageHeading />
@@ -112,7 +112,7 @@ const Home = () => (
             </Header>
             <p style={{ fontSize: "1.33em" }}>
               <Image size="tiny" avatar src="\images\all-people.jpg" />
-              This is what they all say about us!
+              This is what everyone says!
             </p>
           </Grid.Column>
         </Grid.Row>
