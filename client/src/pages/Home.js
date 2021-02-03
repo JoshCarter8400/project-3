@@ -41,11 +41,7 @@ const HomepageHeading = ({ mobile }) => (
         fontWeight: "normal",
         marginTop: mobile ? "0.5em" : "1.5em",
       }}
-    />
-    <Button size="huge" color="teal">
-      Learn How
-      <Icon name="right arrow" />
-    </Button>
+    />    
   </Container>
 );
 
