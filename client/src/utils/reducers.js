@@ -5,7 +5,6 @@ import {
   REMOVE_FROM_CART,
   UPDATE_CART_QUANTITY,
   CLEAR_CART,
-  TOGGLE_CART,
 } from './actions';
 
 const initialState = {
@@ -19,7 +18,7 @@ export const reducer = (state = initialState, action) => {
     case UPDATE_SERVICES:
       return {
         ...state,
-        products: [...action.services],
+        services: [...action.services],
       };
 
     case ADD_TO_CART:
