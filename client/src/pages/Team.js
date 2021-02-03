@@ -164,7 +164,7 @@ const Team = () => (
               <Card.Content>
                 <Card.Header>Developing since 2020.5</Card.Header>
                 <Card.Meta>
-                <a href="/">                  
+                <a href="https://gilabadio.github.io/Portfolio">                  
                   Portfolio
                 </a>
                 </Card.Meta>
