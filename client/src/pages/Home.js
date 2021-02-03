@@ -11,6 +11,7 @@ import {
 } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
 import { Link } from 'react-router-dom';
+import AnimatedLogo from '../components/AnimatedLogo';
 
 
 
@@ -20,6 +21,7 @@ import { Link } from 'react-router-dom';
  */
 const HomepageHeading = ({ mobile }) => (
   <Container text>
+    {(!mobile && <AnimatedLogo />)}
     <Header
       as="h1"
       content="Web-Buffet"
@@ -28,7 +30,7 @@ const HomepageHeading = ({ mobile }) => (
         fontSize: mobile ? "2em" : "4em",
         fontWeight: "normal",
         marginBottom: 0,
-        marginTop: mobile ? "1.5em" : "1.5em",
+        marginTop: mobile ? "1.5em" : "0",
       }}
     />
     <Header
@@ -40,7 +42,7 @@ const HomepageHeading = ({ mobile }) => (
         fontWeight: "normal",
         marginTop: mobile ? "0.5em" : "1.5em",
       }}
-    />    
+    />
   </Container>
 );
 
@@ -50,7 +52,7 @@ HomepageHeading.propTypes = {
 
 const Home = () => (
   <div>
-        <Segment
+    <Segment
       inverted
       color="blue"
       textAlign="center"
@@ -102,7 +104,7 @@ const Home = () => (
               "What a Company!!!"
             </Header>
             <p style={{ fontSize: "1.33em" }}>
-            <Image size="tiny" avatar src="\images\internet-ceo.jpg" />
+              <Image size="tiny" avatar src="\images\internet-ceo.jpg" />
               CEO of the Internet
             </p>
           </Grid.Column>
