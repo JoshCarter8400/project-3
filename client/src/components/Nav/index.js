@@ -52,12 +52,22 @@ class DesktopContainer extends Component {
               color="teal"
             >
               <Container>
-                <Menu.Item as={Link} active to="/">Home</Menu.Item>
-                <Menu.Item as={Link} to="/services">Services</Menu.Item>
-                <Menu.Item as={Link} to="/team">Team</Menu.Item>
+                <Menu.Item as={Link} active to="/">
+                  Home
+                </Menu.Item>
+                <Menu.Item as={Link} to="/services">
+                  Services
+                </Menu.Item>
+                <Menu.Item as={Link} to="/team">
+                  Team
+                </Menu.Item>
                 <Menu.Item as="a">Contact Us</Menu.Item>
-                <Menu.Item as={Link} to="/reviewForm">Review Form</Menu.Item>
-                <Menu.Item as={Link} to="/reviewsList">Reviews List</Menu.Item>
+                <Menu.Item as={Link} to="/reviewForm">
+                  Review Form
+                </Menu.Item>
+                <Menu.Item as={Link} to="/ReviewsList">
+                  Reviews List
+                </Menu.Item>
                 <Menu.Item position="right">
                   <Button as={Link} inverted={!fixed} to="/login">
                     Log in
@@ -130,11 +140,21 @@ class MobileContainer extends Component {
             visible={sidebarOpened}
             color="teal"
           >
-            <Menu.Item as={Link} active to="/">Home</Menu.Item>
-            <Menu.Item as={Link} to="/services">Services</Menu.Item>
-            <Menu.Item as={Link} to="/team">Team</Menu.Item>
-            <Menu.Item as={Link} to="/login">Log in</Menu.Item>
-            <Menu.Item as={Link} to="/signup">Sign Up</Menu.Item>
+            <Menu.Item as={Link} active to="/">
+              Home
+            </Menu.Item>
+            <Menu.Item as={Link} to="/services">
+              Services
+            </Menu.Item>
+            <Menu.Item as={Link} to="/team">
+              Team
+            </Menu.Item>
+            <Menu.Item as={Link} to="/login">
+              Log in
+            </Menu.Item>
+            <Menu.Item as={Link} to="/signup">
+              Sign Up
+            </Menu.Item>
           </Sidebar>
 
           <Sidebar.Pusher dimmed={sidebarOpened}>
