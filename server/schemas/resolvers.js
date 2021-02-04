@@ -15,14 +15,8 @@ const resolvers = {
       }
       throw new AuthenticationError('Not logged in');
     },
-    reviews: async (parent, { username }, context) => {
-      const params = username ? { username } : {};
-      return Review.find({ username: context.user.username }).sort({
-        createdAt: -1,
-      });
-    },
-    review: async (parent, { _id }) => {
-      return Review.findOne({ _id });
+    reviews: async () => {
+      return Review.find().sort({ createdAt: -1 });
     },
     users: async () => {
       return User.find().select('-__v -password').populate('reviews');

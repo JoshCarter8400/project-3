@@ -1,16 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Card, Grid, Header, Segment } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
 import { QUERY_REVIEWS } from '../../utils/queries';
-// import { useParams } from 'react-router-dom';
+
 import 'semantic-ui-css/semantic.min.css';
 
-const ReviewsList = ({}) => {
-  // const { id: Id } = useParams();
-  const { loading, reviews } = useQuery(QUERY_REVIEWS);
-  console.log(reviews);
-  // const service = data?.service || {};
+const ReviewsList = () => {
+  const { loading, data } = useQuery(QUERY_REVIEWS);
+
+  const reviews = data?.reviews || {};
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   if (!reviews) {
     return <Header as="h2">No one has left a review yet</Header>;
@@ -21,9 +24,6 @@ const ReviewsList = ({}) => {
       <Grid>
         <Grid.Row>
           <Grid.Column width={10}>
-            <Header as="h3" style={{ fontSize: '1em' }}>
-              {/* {title} */}
-            </Header>
             {reviews &&
               reviews.map((review) => (
                 <Card.Content key={review._id}>

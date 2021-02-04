@@ -27,8 +27,8 @@ export const QUERY_ALL_SERVICES = gql`
 `;
 
 export const QUERY_REVIEWS = gql`
-  query reviews($username: String) {
-    reviews(username: $username) {
+  query reviews {
+    reviews {
       _id
       reviewText
       createdAt
