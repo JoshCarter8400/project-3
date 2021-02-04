@@ -34,6 +34,8 @@ const Profile = () => {
               </Grid.Row>
               <Card fluid>
                 <Image src="\images\profile-picture.jpg" wrapped ui={false} />
+                {/* Future edit button
+                
                 <Button
                   animated="fade"
                   floated="right"
@@ -42,8 +44,10 @@ const Profile = () => {
                   <Button.Content visible>
                     <Icon name="pencil" />
                   </Button.Content>
-                  <Button.Content hidden>Edit Description</Button.Content>
-                </Button>
+                  
+                   <Button.Content hidden>Edit Description</Button.Content>
+                   
+                </Button> */}
                 <Card.Content>
                   <Card.Header>John Doe</Card.Header>
                   <Card.Meta>
@@ -66,6 +70,9 @@ const Profile = () => {
               <Header dividing size="huge" as="h1">
                 Dashboard
               </Header>
+              Coming soon to your plate!
+              {/* Future dashboard
+              
               <Segment color="blue" inverted>
                 <Button
                   icon
@@ -115,6 +122,8 @@ const Profile = () => {
                   Change Password
                 </Button>
               </Segment>
+              
+              */}
             </Segment>
           </Grid.Column>
         </Grid.Row>
