@@ -7,7 +7,7 @@ import { QUERY_CHECKOUT } from '../../utils/queries';
 import { useLazyQuery } from '@apollo/react-hooks';
 import { loadStripe } from '@stripe/stripe-js';
 import { useSelector, useDispatch } from 'react-redux';
-import { Button, Header, Segment, Container } from 'semantic-ui-react';
+import { Button, Header, Segment, Container, Image } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 // import {removeService} from './actions/cartActions'
 
@@ -72,9 +72,12 @@ const Cart = () => {
             style={{ margin: "0.25em 0em", fontSize: "3em"}}
             fluid
           >
-            Cart
+            Your Cart
           </Header>
+          <Image src="\images\cart.jpg" centered fluid />
         </Segment>
+        
+        <br/>
       {state.cart.length ? (
         <Container text textAlign="center">
           

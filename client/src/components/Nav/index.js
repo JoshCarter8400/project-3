@@ -1,6 +1,6 @@
-import { createMedia } from '@artsy/fresnel';
-import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import { createMedia } from "@artsy/fresnel";
+import PropTypes from "prop-types";
+import React, { Component } from "react";
 import {
   Button,
   Container,
@@ -9,9 +9,9 @@ import {
   Segment,
   Sidebar,
   Visibility,
-} from 'semantic-ui-react';
-import 'semantic-ui-css/semantic.min.css';
-import { Link } from 'react-router-dom';
+} from "semantic-ui-react";
+import "semantic-ui-css/semantic.min.css";
+import { Link } from "react-router-dom";
 import Auth from "../../utils/auth";
 
 const { MediaContextProvider, Media } = createMedia({
@@ -31,10 +31,12 @@ class DesktopContainer extends Component {
 
   hideFixedMenu = () => this.setState({ fixed: false });
   showFixedMenu = () => this.setState({ fixed: true });
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name });
 
   render() {
     const { children } = this.props;
     const { fixed } = this.state;
+    const { activeItem } = this.state;
     if (Auth.loggedIn()) {
       return (
         <Media greaterThan="mobile">
@@ -45,7 +47,7 @@ class DesktopContainer extends Component {
           >
             <Segment inverted color="blue" textAlign="center" vertical>
               <Menu
-                fixed={fixed ? 'top' : null}
+                fixed={fixed ? "top" : null}
                 inverted={!fixed}
                 pointing={!fixed}
                 secondary={!fixed}
@@ -53,41 +55,76 @@ class DesktopContainer extends Component {
                 color="teal"
               >
                 <Container>
-                  <Menu.Item as={Link} active to="/">
+                  <Menu.Item
+                    name="home"
+                    active={activeItem === "home"}
+                    onClick={this.handleItemClick}
+                    as={Link}
+                    to="/"
+                  >
                     Home
                   </Menu.Item>
-                  <Menu.Item as={Link} to="/services">
+                  <Menu.Item
+                    name="services"
+                    active={activeItem === "services"}
+                    onClick={this.handleItemClick}
+                    as={Link}
+                    to="/services"
+                  >
                     Services
                   </Menu.Item>
-                  <Menu.Item as={Link} to="/team">
+                  <Menu.Item
+                    name="team"
+                    active={activeItem === "team"}
+                    onClick={this.handleItemClick}
+                    as={Link}
+                    to="/team"
+                  >
                     Team
                   </Menu.Item>
-                  <Menu.Item as={Link} to="/reviewForm">
+                  <Menu.Item
+                    name="reviewForm"
+                    active={activeItem === "reviewForm"}
+                    onClick={this.handleItemClick}
+                    as={Link}
+                    to="/reviewForm"
+                  >
                     Review Form
                   </Menu.Item>
-                  <Menu.Item as={Link} to="/ReviewsList">
+                  <Menu.Item
+                    name="reviewsList"
+                    active={activeItem === "reviewsList"}
+                    onClick={this.handleItemClick}
+                    as={Link}
+                    to="/ReviewsList"
+                  >
                     Reviews List
                   </Menu.Item>
                   <Menu.Item position="right">
-                    
                     <Button
                       icon
                       labelPosition="left"
                       inverted={!fixed}
-                      style={{ marginLeft: '0.5em' }}
+                      style={{ marginLeft: "0.5em" }}
                       as={Link}
                       to="/profile"
                     >
                       <Icon name="user" />
                       Username
                     </Button>
-                    <Button as={Link} to="/" onClick={() => Auth.logout()} inverted={!fixed} >
-                        Logout
-                      </Button>
+                    <Button
+                      as={Link}
+                      to="/"
+                      onClick={() => Auth.logout()}
+                      inverted={!fixed}
+                      style={{ marginLeft: "0.5em" }}
+                    >
+                      Logout
+                    </Button>
                     <Button
                       icon
                       inverted={!fixed}
-                      style={{ marginLeft: '0.5em' }}
+                      style={{ marginLeft: "0.5em" }}
                       as={Link}
                       to="/cart"
                     >
@@ -98,62 +135,87 @@ class DesktopContainer extends Component {
               </Menu>
             </Segment>
           </Visibility>
-  
+
           {children}
         </Media>
       );
     } else {
-    return (
-      <Media greaterThan="mobile">
-        <Visibility
-          once={false}
-          onBottomPassed={this.showFixedMenu}
-          onBottomPassedReverse={this.hideFixedMenu}
-        >
-          <Segment inverted color="blue" textAlign="center" vertical>
-            <Menu
-              fixed={fixed ? 'top' : null}
-              inverted={!fixed}
-              pointing={!fixed}
-              secondary={!fixed}
-              size="large"
-              color="teal"
-            >
-              <Container>
-                <Menu.Item as={Link} active to="/">
-                  Home
-                </Menu.Item>
-                <Menu.Item as={Link} to="/services">
-                  Services
-                </Menu.Item>
-                <Menu.Item as={Link} to="/team">
-                  Team
-                </Menu.Item>
-                <Menu.Item as={Link} to="/ReviewsList">
-                  Reviews List
-                </Menu.Item>
-                <Menu.Item position="right">
-                  <Button as={Link} inverted={!fixed} to="/login">
-                    Log in
-                  </Button>
-                  <Button
-                    inverted={!fixed}
-                    primary={fixed}
-                    style={{ marginLeft: '0.5em' }}
+      return (
+        <Media greaterThan="mobile">
+          <Visibility
+            once={false}
+            onBottomPassed={this.showFixedMenu}
+            onBottomPassedReverse={this.hideFixedMenu}
+          >
+            <Segment inverted color="blue" textAlign="center" vertical>
+              <Menu
+                fixed={fixed ? "top" : null}
+                inverted={!fixed}
+                pointing={!fixed}
+                secondary={!fixed}
+                size="large"
+                color="teal"
+              >
+                <Container>
+                  <Menu.Item
+                    name="home"
+                    active={activeItem === "home"}
+                    onClick={this.handleItemClick}
                     as={Link}
-                    to="/signup"
+                    active
+                    to="/"
                   >
-                    Sign Up
-                  </Button>
-                </Menu.Item>
-              </Container>
-            </Menu>
-          </Segment>
-        </Visibility>
+                    Home
+                  </Menu.Item>
+                  <Menu.Item
+                    name="services"
+                    active={activeItem === "services"}
+                    onClick={this.handleItemClick}
+                    as={Link}
+                    to="/services"
+                  >
+                    Services
+                  </Menu.Item>
+                  <Menu.Item
+                    name="team"
+                    active={activeItem === "team"}
+                    onClick={this.handleItemClick}
+                    as={Link}
+                    to="/team"
+                  >
+                    Team
+                  </Menu.Item>
+                  <Menu.Item
+                    name="reviewsList"
+                    active={activeItem === "reviewsList"}
+                    onClick={this.handleItemClick}
+                    as={Link}
+                    to="/ReviewsList"
+                  >
+                    Reviews List
+                  </Menu.Item>
+                  <Menu.Item position="right">
+                    <Button as={Link} inverted={!fixed} to="/login">
+                      Log in
+                    </Button>
+                    <Button
+                      inverted={!fixed}
+                      primary={fixed}
+                      style={{ marginLeft: "0.5em" }}
+                      as={Link}
+                      to="/signup"
+                    >
+                      Sign Up
+                    </Button>
+                  </Menu.Item>
+                </Container>
+              </Menu>
+            </Segment>
+          </Visibility>
 
-        {children}
-      </Media>
-    );
+          {children}
+        </Media>
+      );
     }
   }
 }
@@ -198,16 +260,16 @@ class MobileContainer extends Component {
                 LogOut
               </Menu.Item>
               <Button
-                      icon
-                      style={{ marginLeft: '0.5em' }}
-                      as={Link}
-                      to="/cart"
-                    >
-                      <Icon name="cart" />
-                    </Button>
-              
+                icon
+                style={{ marginLeft: "0.5em" }}
+                as={Link}
+                to="/cart"
+                inverted
+              >
+                <Icon name="cart" />
+              </Button>
             </Sidebar>
-  
+
             <Sidebar.Pusher dimmed={sidebarOpened}>
               <Segment inverted textAlign="center" vertical color="teal">
                 <Container>
@@ -219,30 +281,28 @@ class MobileContainer extends Component {
                       <Button
                         inverted
                         icon
-                        labelPosition="left"
-                        style={{ marginLeft: '0.5em' }}
+                        style={{ marginLeft: "0.5em" }}
                         as={Link}
                         to="/profile"
                       >
                         <Icon name="user" />
-                        Username
-                      </Button>
-                      <Button as={Link} to="/" inverted onClick={() => Auth.logout()}>
-                        LogOut
                       </Button>
                       <Button
-                      icon
-                      style={{ marginLeft: '0.5em' }}
-                      as={Link}
-                      to="/cart"
-                    >
-                      <Icon name="cart" />
-                    </Button>
+                        as={Link}
+                        to="/"
+                        inverted
+                        onClick={() => Auth.logout()}
+                      >
+                        LogOut
+                      </Button>
+                      <Button icon as={Link} to="/cart" inverted>
+                        <Icon name="cart" />
+                      </Button>
                     </Menu.Item>
                   </Menu>
                 </Container>
               </Segment>
-  
+
               {children}
             </Sidebar.Pusher>
           </Sidebar.Pushable>
@@ -250,64 +310,63 @@ class MobileContainer extends Component {
       );
     } else {
       return (
-      <Media as={Sidebar.Pushable} at="mobile">
-        <Sidebar.Pushable>
-          <Sidebar
-            as={Menu}
-            animation="overlay"
-            inverted
-            onHide={this.handleSidebarHide}
-            vertical
-            visible={sidebarOpened}
-            color="teal"
-          >
-            <Menu.Item as={Link} active to="/">
-              Home
-            </Menu.Item>
-            <Menu.Item as={Link} to="/services">
-              Services
-            </Menu.Item>
-            <Menu.Item as={Link} to="/team">
-              Team
-            </Menu.Item>
-            <Menu.Item as={Link} to="/login">
-              Log in
-            </Menu.Item>
-            <Menu.Item as={Link} to="/signup">
-              Sign Up
-            </Menu.Item>
-          </Sidebar>
+        <Media as={Sidebar.Pushable} at="mobile">
+          <Sidebar.Pushable>
+            <Sidebar
+              as={Menu}
+              animation="overlay"
+              inverted
+              onHide={this.handleSidebarHide}
+              vertical
+              visible={sidebarOpened}
+              color="teal"
+            >
+              <Menu.Item as={Link} active to="/">
+                Home
+              </Menu.Item>
+              <Menu.Item as={Link} to="/services">
+                Services
+              </Menu.Item>
+              <Menu.Item as={Link} to="/team">
+                Team
+              </Menu.Item>
+              <Menu.Item as={Link} to="/login">
+                Log in
+              </Menu.Item>
+              <Menu.Item as={Link} to="/signup">
+                Sign Up
+              </Menu.Item>
+            </Sidebar>
 
-          <Sidebar.Pusher dimmed={sidebarOpened}>
-            <Segment inverted textAlign="center" vertical color="teal">
-              <Container>
-                <Menu inverted pointing secondary size="large">
-                  <Menu.Item onClick={this.handleToggle}>
-                    <Icon name="sidebar" />
-                  </Menu.Item>
-                  <Menu.Item position="right">
-                    <Button as={Link} to="/login" inverted>
-                      Log in
-                    </Button>
-                    <Button
-                      as={Link}
-                      to="/signup"
-                      inverted
-                      style={{ marginLeft: '0.5em' }}
-                    >
-                      Sign Up
-                    </Button>
-                    
-                  </Menu.Item>
-                </Menu>
-              </Container>
-            </Segment>
+            <Sidebar.Pusher dimmed={sidebarOpened}>
+              <Segment inverted textAlign="center" vertical color="teal">
+                <Container>
+                  <Menu inverted pointing secondary size="large">
+                    <Menu.Item onClick={this.handleToggle}>
+                      <Icon name="sidebar" />
+                    </Menu.Item>
+                    <Menu.Item position="right">
+                      <Button as={Link} to="/login" inverted>
+                        Log in
+                      </Button>
+                      <Button
+                        as={Link}
+                        to="/signup"
+                        inverted
+                        style={{ marginLeft: "0.5em" }}
+                      >
+                        Sign Up
+                      </Button>
+                    </Menu.Item>
+                  </Menu>
+                </Container>
+              </Segment>
 
-            {children}
-          </Sidebar.Pusher>
-        </Sidebar.Pushable>
-      </Media> )
-      
+              {children}
+            </Sidebar.Pusher>
+          </Sidebar.Pushable>
+        </Media>
+      );
     }
   }
 }

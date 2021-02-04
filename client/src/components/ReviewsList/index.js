@@ -48,9 +48,10 @@ const ReviewsList = () => {
           >
             Reviews
           </Header>
+          <Image src="\images\review.jpg" centered fluid />
         </Segment>
 
-        <Image src="\images\review.jpg" centered fluid />
+        
         <br />
         <Grid centered>
           <Grid.Row>

@@ -56,7 +56,7 @@ const ReviewForm = () => {
   return (
     <Container text>
       <Segment compact>
-        <Segment inverted color="blue" textAlign="center" vertical>
+        <Segment inverted color="blue" textAlign="center">
           <Header
             textAlign="center"
             as="h1"
@@ -64,9 +64,10 @@ const ReviewForm = () => {
           >
             Your opinion matters to us, leave a review!
           </Header>
+          <Image src="\images\customer-support.jpg" centered fluid />
         </Segment>
 
-        <Image src="\images\customer-support.jpg" centered fluid />
+        
 
         <Form onSubmit={handleFormSubmit}>
           <Form.TextArea
