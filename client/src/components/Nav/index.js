@@ -131,9 +131,6 @@ class DesktopContainer extends Component {
                   Team
                 </Menu.Item>
                 <Menu.Item as="a">Contact Us</Menu.Item>
-                <Menu.Item as={Link} to="/reviewForm">
-                  Review Form
-                </Menu.Item>
                 <Menu.Item as={Link} to="/ReviewsList">
                   Reviews List
                 </Menu.Item>
@@ -149,15 +146,6 @@ class DesktopContainer extends Component {
                     to="/signup"
                   >
                     Sign Up
-                  </Button>
-                  <Button
-                    icon
-                    inverted={!fixed}
-                    style={{ marginLeft: '0.5em' }}
-                    as={Link}
-                    to="/cart"
-                  >
-                    <Icon name="cart" />
                   </Button>
                 </Menu.Item>
               </Container>
