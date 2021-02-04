@@ -33,7 +33,6 @@ const Detail = () => {
     // already in store
     if (services.length) {
       setCurrentService(services.find((service) => service._id === id));
-      console.log(currentService);
     } // retrieved from server
     else if (data) {
       dispatch({
@@ -100,7 +99,7 @@ const Detail = () => {
           src={`/images/${currentService.image}`}
           size="small"
           centered
-          style={{ marginTop: 2 + "em", marginBottom: 2 + "em" }}
+          style={{ marginTop: 2 + 'em', marginBottom: 2 + 'em' }}
         />
         <Header style={{ marginTop: 1 + 'em', textAlign: 'center' }}>
           {currentService.name}
@@ -109,8 +108,7 @@ const Detail = () => {
         <p>
           Price: ${currentService.price}
           <br />
-          <Button onClick={addToCart}   primary as={Link}
-                      to="/cart">
+          <Button onClick={addToCart} primary as={Link} to="/cart">
             Add to cart
           </Button>
           <Button
@@ -123,16 +121,16 @@ const Detail = () => {
       </Container>
       <p
         style={{
-          marginTop: 2 + "em",
-          marginBottom: 2 + "em",
-          textAlign: "center",
+          marginTop: 2 + 'em',
+          marginBottom: 2 + 'em',
+          textAlign: 'center',
         }}
       >
-        Icons made by{" "}
+        Icons made by{' '}
         <a href="https://www.freepik.com" title="Freepik">
           Freepik
-        </a>{" "}
-        from{" "}
+        </a>{' '}
+        from{' '}
         <a href="https://www.flaticon.com/" title="Flaticon">
           www.flaticon.com
         </a>

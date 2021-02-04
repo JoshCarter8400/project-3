@@ -15,6 +15,7 @@ import OrderHistory from './pages/OrderHistory';
 import SingleReview from './pages/SingleReview';
 import Services from './pages/Services';
 import Detail from './pages/Detail';
+import Success from './pages/Success';
 
 //import components
 
@@ -62,6 +63,7 @@ function App() {
               <Route exact path="/reviewForm" component={ReviewForm} />
               <Route exact path="/ReviewsList" component={ReviewsList} />
               <Route exact path="/cart" component={Cart} />
+              <Route exact path="/success" component={Success} />
             </Switch>
             <Footer />
           </Provider>
