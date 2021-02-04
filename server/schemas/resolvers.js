@@ -1,5 +1,6 @@
-const { User, Review } = require('../models');
+const { User, Review, Service, Order } = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
+const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -14,12 +15,8 @@ const resolvers = {
       }
       throw new AuthenticationError('Not logged in');
     },
-    reviews: async (parent, { username }) => {
-      const params = username ? { username } : {};
-      return Review.find(params).sort({ createdAt: -1 });
-    },
-    review: async (parent, { _id }) => {
-      return Review.findOne({ _id });
+    reviews: async () => {
+      return Review.find().sort({ createdAt: -1 });
     },
     users: async () => {
       return User.find().select('-__v -password').populate('reviews');
@@ -29,38 +26,62 @@ const resolvers = {
         .select('-__v -password')
         .populate('reviews');
     },
-    categories: async () => {
-      return await Category.find();
-    },
-    services: async (parent, { category, name }) => {
-      const params = {};
-
-      if (category) {
-        params.category = category;
-      }
-
-      if (name) {
-        params.name = {
-          $regex: name,
-        };
-      }
-
-      return await Service.find(params).populate('category');
+    services: async () => {
+      return Service.find();
     },
     service: async (parent, { _id }) => {
-      return await Service.findById(_id).populate('category');
+      return await Service.findById(_id);
     },
     order: async (parent, { _id }, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id).populate({
           path: 'orders.services',
-          populate: 'category',
         });
 
         return user.orders.id(_id);
       }
 
       throw new AuthenticationError('Not logged in');
+    },
+
+    checkout: async (parent, args, context) => {
+      const url = new URL(context.headers.referer).origin;
+      const order = new Order({ services: args.services });
+      const { services } = await order.populate('services').execPopulate();
+
+      const line_items = [];
+
+      for (let i = 0; i < services.length; i++) {
+        // generate product id
+        const service = await stripe.products.create({
+          name: services[i].name,
+          description: services[i].description,
+          images: [`${url}/assets/${services[i].image}`],
+        });
+
+        // generate price id using the product id
+        const price = await stripe.prices.create({
+          product: service.id,
+          unit_amount: services[i].price * 100,
+          currency: 'usd',
+        });
+
+        // add price id to the line items array
+        line_items.push({
+          price: price.id,
+          quantity: 1,
+        });
+      }
+
+      const session = await stripe.checkout.sessions.create({
+        payment_method_types: ['card'],
+        line_items,
+        mode: 'payment',
+        success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${url}`,
+      });
+
+      return { session: session.id };
     },
   },
   Mutation: {
