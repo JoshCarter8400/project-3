@@ -13,6 +13,7 @@ import { Image, Container, Header, Button } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 
 import { useQuery } from '@apollo/react-hooks';
+import { Link } from 'react-router-dom';
 
 import { QUERY_ALL_SERVICES } from '../utils/queries';
 
@@ -108,7 +109,8 @@ const Detail = () => {
         <p>
           Price: ${currentService.price}
           <br />
-          <Button onClick={addToCart} primary>
+          <Button onClick={addToCart}   primary as={Link}
+                      to="/cart">
             Add to cart
           </Button>
           <Button
