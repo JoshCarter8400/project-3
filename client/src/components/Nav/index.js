@@ -199,6 +199,14 @@ class MobileContainer extends Component {
               <Menu.Item as={Link} to="/" onClick={() => Auth.logout()}>
                 LogOut
               </Menu.Item>
+              <Button
+                      icon
+                      style={{ marginLeft: '0.5em' }}
+                      as={Link}
+                      to="/cart"
+                    >
+                      <Icon name="cart" />
+                    </Button>
               
             </Sidebar>
   
@@ -224,6 +232,14 @@ class MobileContainer extends Component {
                       <Button as={Link} to="/" inverted onClick={() => Auth.logout()}>
                         LogOut
                       </Button>
+                      <Button
+                      icon
+                      style={{ marginLeft: '0.5em' }}
+                      as={Link}
+                      to="/cart"
+                    >
+                      <Icon name="cart" />
+                    </Button>
                     </Menu.Item>
                   </Menu>
                 </Container>
