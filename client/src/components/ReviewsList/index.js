@@ -38,7 +38,7 @@ const ReviewsList = () => {
   }
 
   return (
-    <Container>
+    <Container text>
       <Segment compact>
         <Segment inverted color="blue">
           <Header

@@ -63,21 +63,33 @@ const Cart = () => {
   }
 
   return (
-    <Container textAlign="center">
-      <Header as="h2" style={{ fontSize: '1em' }}>
-        Shopping Cart
-      </Header>
+    <Container text>
+    <br/>
+      <Segment inverted color="blue">
+          <Header
+            textAlign="center"
+            as="h1"
+            style={{ margin: "0.25em 0em", fontSize: "3em"}}
+            fluid
+          >
+            Cart
+          </Header>
+        </Segment>
       {state.cart.length ? (
-        <Container textAlign="center">
+        <Container text textAlign="center">
+          
+          
           {state.cart.map((item) => (
-            <CartItem key={item._id} item={item} />
+            <CartItem key={item._id} item={item}/>
           ))}
+          
+          
 
-          <Segment>
-            <strong>Total: ${calculateTotal()}</strong>
+          <Segment textAlign="center">
+            <strong>Total: ${calculateTotal()} </strong>
 
             {Auth.loggedIn() ? (
-              <Button onClick={submitCheckout}>Checkout</Button>
+              <Button onClick={submitCheckout} color="teal">Checkout</Button>
             ) : (
               <span>Please Log In to Checkout</span>
             )}
@@ -91,6 +103,7 @@ const Cart = () => {
           You haven't added anything to your Shopping Cart
         </Header>
       )}
+    
     </Container>
   );
 };

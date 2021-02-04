@@ -39,28 +39,30 @@ const CartItem = ({ item }) => {
   };
 
   return (
-    <Segment compact>
+    <Segment fluid>
       <Image size="small" src={`/images/${item.image}`} centered></Image>
 
-      <Segment.Group>
+      <Segment.Group >
         <Segment inverted color="blue" as="h2">
           {item.name} — ${item.price}
         </Segment>
-        <Segment>
+        <Segment textAlign="center" >
           <Button as="div" labelPosition="left">
-            <Label color="blue">
+            <Label color="blue" >
               Qty:
               <Input
                 type="number"
                 placeholder="1"
                 value={item.purchaseQuantity}
                 onChange={onChange}
+                
               />
             </Label>
             <Button
               color="teal"
               icon="trash"
               onClick={() => removeFromCart(item)}
+              compact
             />
           </Button>
         </Segment>
