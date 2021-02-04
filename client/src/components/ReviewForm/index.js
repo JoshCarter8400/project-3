@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import { ADD_REVIEW } from '../../utils/mutations';
 import { QUERY_REVIEWS, QUERY_ME } from '../../utils/queries';
-import { Form, Icon, Segment } from 'semantic-ui-react';
+import { Form, Icon, Segment, Image, Header } from 'semantic-ui-react';
 
 const ReviewForm = () => {
   const [reviewText, setText] = useState('');
@@ -55,10 +55,11 @@ const ReviewForm = () => {
   };
   return (
     <Segment>
-      <p className={`m-0 ${characterCount === 300 ? 'text-error' : ''}`}>
-        Character count: {characterCount}/300
-        {error && <span className="ml-2">Something Went Wrong...</span>}
-      </p>
+      <Header textAlign="center" as="h1" style={{ margin: "1em 0em", fontSize: "3em" }}>
+              Your opinion matters to us, leave a review!
+            </Header>
+      <Image src="\images\customer-support.jpg" centered />
+      
       <Form onSubmit={handleFormSubmit}>
         <Form.TextArea
           label="Review"
@@ -66,6 +67,10 @@ const ReviewForm = () => {
           value={reviewText}
           onChange={handleChange}
         />
+        <p className={`m-0 ${characterCount === 300 ? 'text-error' : ''}`}>
+        Character count: {characterCount}/300
+        {error && <span className="ml-2">Something Went Wrong...</span>}
+      </p>
 
         <Form.Button primary size="medium">
           Submit
