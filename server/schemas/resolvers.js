@@ -1,4 +1,4 @@
-const { User, Review, Service } = require('../models');
+const { User, Review, Service, Order } = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
 const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 const { signToken } = require('../utils/auth');
@@ -53,7 +53,7 @@ const resolvers = {
 
       for (let i = 0; i < services.length; i++) {
         // generate product id
-        const service = await stripe.services.create({
+        const service = await stripe.products.create({
           name: services[i].name,
           description: services[i].description,
           images: [`${url}/assets/${services[i].image}`],
@@ -61,8 +61,8 @@ const resolvers = {
 
         // generate price id using the product id
         const price = await stripe.prices.create({
-          service: service.id,
-          unit_amount: service[i].price * 100,
+          product: service.id,
+          unit_amount: services[i].price * 100,
           currency: 'usd',
         });
 
