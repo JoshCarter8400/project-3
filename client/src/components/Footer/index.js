@@ -23,23 +23,13 @@ const Footer = () => {
               <List.Item as="a">Services</List.Item>
               <List.Item as="a">Team</List.Item>
             </List>
-          </Grid.Column>
-          <Grid.Column width={3}>
-            <Header inverted as="h4" content="Services" />
-            <List link inverted>
-              <List.Item as="a">Placeholder1</List.Item>
-              <List.Item as="a">Placeholder2</List.Item>
-              <List.Item as="a">Placeholder3</List.Item>
-              <List.Item as="a">Placeholder4</List.Item>
-            </List>
-          </Grid.Column>
+          </Grid.Column>          
           <Grid.Column width={7}>
             <Header as="h4" inverted>
-              Footer Header
+              Thank you!
             </Header>
             <p>
-              Extra space for a call to action inside the footer that could
-              help re-engage users.
+              We appreciate you and everything you do for us.
             </p>
           </Grid.Column>
         </Grid.Row>
