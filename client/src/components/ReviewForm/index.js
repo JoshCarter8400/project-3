@@ -54,7 +54,7 @@ const ReviewForm = () => {
     }
   };
   return (
-    <Container>
+    <Container text>
       <Segment compact>
         <Segment inverted color="blue" textAlign="center" vertical>
           <Header

@@ -7,7 +7,7 @@ import { QUERY_CHECKOUT } from '../../utils/queries';
 import { useLazyQuery } from '@apollo/react-hooks';
 import { loadStripe } from '@stripe/stripe-js';
 import { useSelector, useDispatch } from 'react-redux';
-import { Button, Header, Segment } from 'semantic-ui-react';
+import { Button, Header, Segment, Container } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 // import {removeService} from './actions/cartActions'
 
@@ -63,26 +63,38 @@ const Cart = () => {
   }
 
   return (
-    <Segment>
-      <Header as="h2" style={{ fontSize: '1em' }}>
-        Shopping Cart
-      </Header>
+    <Container text>
+    <br/>
+      <Segment inverted color="blue">
+          <Header
+            textAlign="center"
+            as="h1"
+            style={{ margin: "0.25em 0em", fontSize: "3em"}}
+            fluid
+          >
+            Cart
+          </Header>
+        </Segment>
       {state.cart.length ? (
-        <Segment>
+        <Container text textAlign="center">
+          
+          
           {state.cart.map((item) => (
-            <CartItem key={item._id} item={item} />
+            <CartItem key={item._id} item={item}/>
           ))}
+          
+          
 
-          <Segment>
-            <strong>Total: ${calculateTotal()}</strong>
+          <Segment textAlign="center">
+            <strong>Total: ${calculateTotal()} </strong>
 
             {Auth.loggedIn() ? (
-              <Button onClick={submitCheckout}>Checkout</Button>
+              <Button onClick={submitCheckout} color="teal">Checkout</Button>
             ) : (
               <span>Please Log In to Checkout</span>
             )}
           </Segment>
-        </Segment>
+        </Container>
       ) : (
         <Header as="h4" style={{ fontSize: '1em' }}>
           <span role="img" aria-label="shocked">
@@ -91,7 +103,8 @@ const Cart = () => {
           You haven't added anything to your Shopping Cart
         </Header>
       )}
-    </Segment>
+    
+    </Container>
   );
 };
 
