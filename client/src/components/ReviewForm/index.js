@@ -60,7 +60,7 @@ const ReviewForm = () => {
           <Header
             textAlign="center"
             as="h1"
-            style={{ margin: "1em 0em", fontSize: "3em" }}
+            style={{ margin: "0.25em 0em", fontSize: "3em" }}
           >
             Your opinion matters to us, leave a review!
           </Header>
