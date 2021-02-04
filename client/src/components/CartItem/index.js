@@ -43,8 +43,8 @@ const CartItem = ({ item }) => {
       <Image size="small" src={`/images/${item.image}`} centered></Image>
 
       <Segment.Group>
-        <Segment>
-          {item.name}, ${item.price}
+        <Segment inverted color="blue" as="h2">
+          {item.name} — ${item.price}
         </Segment>
         <Segment>
           <Button as="div" labelPosition="left">

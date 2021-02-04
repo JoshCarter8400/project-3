@@ -7,7 +7,7 @@ import { QUERY_CHECKOUT } from '../../utils/queries';
 import { useLazyQuery } from '@apollo/react-hooks';
 import { loadStripe } from '@stripe/stripe-js';
 import { useSelector, useDispatch } from 'react-redux';
-import { Button, Header, Segment } from 'semantic-ui-react';
+import { Button, Header, Segment, Container } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 // import {removeService} from './actions/cartActions'
 
@@ -63,12 +63,12 @@ const Cart = () => {
   }
 
   return (
-    <Segment>
+    <Container textAlign="center">
       <Header as="h2" style={{ fontSize: '1em' }}>
         Shopping Cart
       </Header>
       {state.cart.length ? (
-        <Segment>
+        <Container textAlign="center">
           {state.cart.map((item) => (
             <CartItem key={item._id} item={item} />
           ))}
@@ -82,7 +82,7 @@ const Cart = () => {
               <span>Please Log In to Checkout</span>
             )}
           </Segment>
-        </Segment>
+        </Container>
       ) : (
         <Header as="h4" style={{ fontSize: '1em' }}>
           <span role="img" aria-label="shocked">
@@ -91,7 +91,7 @@ const Cart = () => {
           You haven't added anything to your Shopping Cart
         </Header>
       )}
-    </Segment>
+    </Container>
   );
 };
 
