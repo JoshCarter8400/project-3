@@ -58,17 +58,17 @@ export const QUERY_USER = gql`
         _id
         reviewText
         createdAt
-        orders {
+      }
+      orders {
+        _id
+        purchaseDate
+        services {
           _id
-          purchaseDate
-          services {
-            _id
-            name
-            description
-            price
-            quantity
-            image
-          }
+          name
+          description
+          price
+          quantity
+          image
         }
       }
     }

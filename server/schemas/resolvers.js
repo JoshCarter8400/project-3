@@ -21,10 +21,19 @@ const resolvers = {
     users: async () => {
       return User.find().select('-__v -password').populate('reviews');
     },
-    user: async (parent, { username }) => {
-      return User.findOne({ username })
-        .select('-__v -password')
-        .populate('reviews');
+    user: async (parent, args, context) => {
+      if (context.user) {
+        const user = await User.findById(context.user._id).populate({
+          path: 'orders.services',
+          populate: 'services',
+        });
+
+        user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
+
+        return user;
+      }
+
+      throw new AuthenticationError('Not logged in');
     },
     services: async () => {
       return Service.find();
