@@ -59,4 +59,4 @@ Made with ❤️ by: Chris Southwick, Gil Abadio, Josh Carter and Lucas Barros
 
 MIT
 
-<img src="client\public\images\web-buffet-screenshot.png/>
+<img src="client\public\images\web-buffet-screenshot.png>
