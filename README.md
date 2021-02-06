@@ -54,7 +54,7 @@ People are often frustrated with how complex making a responsive intuitive websi
 
 Made with ❤️ by: Chris Southwick, Gil Abadio, Josh Carter and Lucas Barros
 
-<img src="C:\Users\joshc\Desktop\CODE\2U Trilogy\Projects\project-3\client\public\images\web-buffet-screenshot.png"/>
+<img src="C:\Users\joshc\Desktop\CODE\2U Trilogy\Projects\project-3\client\public\images\web-buffet-screenshot.png">
 
 ## License
 
