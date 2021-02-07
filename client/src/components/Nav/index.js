@@ -1,6 +1,6 @@
-import { createMedia } from '@artsy/fresnel';
-import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import { createMedia } from "@artsy/fresnel";
+import PropTypes from "prop-types";
+import React, { Component } from "react";
 import {
   Button,
   Container,
@@ -9,11 +9,11 @@ import {
   Segment,
   Sidebar,
   Visibility,
-} from 'semantic-ui-react';
-import 'semantic-ui-css/semantic.min.css';
-import { Link } from 'react-router-dom';
-import Auth from '../../utils/auth';
-import Logout from '../../pages/Logout';
+} from "semantic-ui-react";
+import "semantic-ui-css/semantic.min.css";
+import { Link } from "react-router-dom";
+import Auth from "../../utils/auth";
+import Logout from "../../pages/Logout";
 
 const { MediaContextProvider, Media } = createMedia({
   breakpoints: {
@@ -45,7 +45,7 @@ class DesktopContainer extends Component {
           >
             <Segment inverted color="blue" textAlign="center" vertical>
               <Menu
-                fixed={fixed ? 'top' : null}
+                fixed={fixed ? "top" : null}
                 inverted={!fixed}
                 pointing={!fixed}
                 secondary={!fixed}
@@ -55,7 +55,7 @@ class DesktopContainer extends Component {
                 <Container>
                   <Menu.Item
                     name="home"
-                    active={activeItem === 'home'}
+                    active={activeItem === "home"}
                     onClick={this.handleItemClick}
                     as={Link}
                     to="/"
@@ -64,7 +64,7 @@ class DesktopContainer extends Component {
                   </Menu.Item>
                   <Menu.Item
                     name="services"
-                    active={activeItem === 'services'}
+                    active={activeItem === "services"}
                     onClick={this.handleItemClick}
                     as={Link}
                     to="/services"
@@ -73,7 +73,7 @@ class DesktopContainer extends Component {
                   </Menu.Item>
                   <Menu.Item
                     name="team"
-                    active={activeItem === 'team'}
+                    active={activeItem === "team"}
                     onClick={this.handleItemClick}
                     as={Link}
                     to="/team"
@@ -82,7 +82,7 @@ class DesktopContainer extends Component {
                   </Menu.Item>
                   <Menu.Item
                     name="reviewForm"
-                    active={activeItem === 'reviewForm'}
+                    active={activeItem === "reviewForm"}
                     onClick={this.handleItemClick}
                     as={Link}
                     to="/reviewForm"
@@ -91,28 +91,20 @@ class DesktopContainer extends Component {
                   </Menu.Item>
                   <Menu.Item
                     name="reviewsList"
-                    active={activeItem === 'reviewsList'}
+                    active={activeItem === "reviewsList"}
                     onClick={this.handleItemClick}
                     as={Link}
                     to="/ReviewsList"
                   >
                     Reviews
                   </Menu.Item>
-                  <Menu.Item
-                    name="orderHistory"
-                    active={activeItem === 'orderHistory'}
-                    onClick={this.handleItemClick}
-                    as={Link}
-                    to="/orderHistory"
-                  >
-                    Order History
-                  </Menu.Item>
+
                   <Menu.Item position="right">
                     <Button
                       icon
                       labelPosition="left"
                       inverted={!fixed}
-                      style={{ marginLeft: '0.5em' }}
+                      style={{ marginLeft: "0.5em" }}
                       as={Link}
                       to="/profile"
                     >
@@ -124,14 +116,14 @@ class DesktopContainer extends Component {
                       to="/"
                       onClick={() => Auth.logout(Logout)}
                       inverted={!fixed}
-                      style={{ marginLeft: '0.5em' }}
+                      style={{ marginLeft: "0.5em" }}
                     >
                       Logout
                     </Button>
                     <Button
                       icon
                       inverted={!fixed}
-                      style={{ marginLeft: '0.5em' }}
+                      style={{ marginLeft: "0.5em" }}
                       as={Link}
                       to="/cart"
                     >
@@ -156,7 +148,7 @@ class DesktopContainer extends Component {
           >
             <Segment inverted color="blue" textAlign="center" vertical>
               <Menu
-                fixed={fixed ? 'top' : null}
+                fixed={fixed ? "top" : null}
                 inverted={!fixed}
                 pointing={!fixed}
                 secondary={!fixed}
@@ -166,7 +158,7 @@ class DesktopContainer extends Component {
                 <Container>
                   <Menu.Item
                     name="home"
-                    active={activeItem === 'home'}
+                    active={activeItem === "home"}
                     onClick={this.handleItemClick}
                     as={Link}
                     to="/"
@@ -175,7 +167,7 @@ class DesktopContainer extends Component {
                   </Menu.Item>
                   <Menu.Item
                     name="services"
-                    active={activeItem === 'services'}
+                    active={activeItem === "services"}
                     onClick={this.handleItemClick}
                     as={Link}
                     to="/services"
@@ -184,7 +176,7 @@ class DesktopContainer extends Component {
                   </Menu.Item>
                   <Menu.Item
                     name="team"
-                    active={activeItem === 'team'}
+                    active={activeItem === "team"}
                     onClick={this.handleItemClick}
                     as={Link}
                     to="/team"
@@ -193,7 +185,7 @@ class DesktopContainer extends Component {
                   </Menu.Item>
                   <Menu.Item
                     name="reviewsList"
-                    active={activeItem === 'reviewsList'}
+                    active={activeItem === "reviewsList"}
                     onClick={this.handleItemClick}
                     as={Link}
                     to="/ReviewsList"
@@ -207,7 +199,7 @@ class DesktopContainer extends Component {
                     <Button
                       inverted={!fixed}
                       primary={fixed}
-                      style={{ marginLeft: '0.5em' }}
+                      style={{ marginLeft: "0.5em" }}
                       as={Link}
                       to="/signup"
                     >
@@ -262,20 +254,18 @@ class MobileContainer extends Component {
               <Menu.Item as={Link} to="/team">
                 Team
               </Menu.Item>
+              <Menu.Item as={Link} to="/reviewForm">
+                Review Form
+              </Menu.Item>
               <Menu.Item as={Link} to="/" onClick={() => Auth.logout()}>
                 LogOut
               </Menu.Item>
-              <Menu.Item
-                name="reviewsList"
-                onClick={this.handleItemClick}
-                as={Link}
-                to="/ReviewsList"
-              >
+              <Menu.Item as={Link} to="/ReviewsList">
                 Reviews
               </Menu.Item>
               <Button
                 icon
-                style={{ marginLeft: '0.5em' }}
+                style={{ marginLeft: "0.5em" }}
                 as={Link}
                 to="/cart"
                 inverted
@@ -295,7 +285,7 @@ class MobileContainer extends Component {
                       <Button
                         inverted
                         icon
-                        style={{ marginLeft: '0.5em' }}
+                        style={{ marginLeft: "0.5em" }}
                         as={Link}
                         to="/profile"
                       >
@@ -375,7 +365,7 @@ class MobileContainer extends Component {
                         as={Link}
                         to="/signup"
                         inverted
-                        style={{ marginLeft: '0.5em' }}
+                        style={{ marginLeft: "0.5em" }}
                       >
                         Sign Up
                       </Button>
@@ -398,7 +388,6 @@ MobileContainer.propTypes = {
 };
 
 const Navbar = ({ children }) => (
-
   <MediaContextProvider>
     <DesktopContainer>{children}</DesktopContainer>
     <MobileContainer>{children}</MobileContainer>
