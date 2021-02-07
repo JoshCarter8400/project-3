@@ -22,7 +22,6 @@ const { MediaContextProvider, Media } = createMedia({
   },
 });
 
-
 class DesktopContainer extends Component {
   state = {};
 
@@ -95,7 +94,7 @@ class DesktopContainer extends Component {
                     as={Link}
                     to="/ReviewsList"
                   >
-                    Reviews List
+                    Reviews
                   </Menu.Item>
                   <Menu.Item position="right">
                     <Button
@@ -189,7 +188,7 @@ class DesktopContainer extends Component {
                     as={Link}
                     to="/ReviewsList"
                   >
-                    Reviews List
+                    Reviews
                   </Menu.Item>
                   <Menu.Item position="right">
                     <Button as={Link} inverted={!fixed} to="/login">
@@ -255,6 +254,14 @@ class MobileContainer extends Component {
               </Menu.Item>
               <Menu.Item as={Link} to="/" onClick={() => Auth.logout()}>
                 LogOut
+              </Menu.Item>
+              <Menu.Item
+                name="reviewsList"
+                onClick={this.handleItemClick}
+                as={Link}
+                to="/ReviewsList"
+              >
+                Reviews
               </Menu.Item>
               <Button
                 icon
@@ -333,6 +340,14 @@ class MobileContainer extends Component {
               <Menu.Item as={Link} to="/signup">
                 Sign Up
               </Menu.Item>
+              <Menu.Item
+                name="reviewsList"
+                onClick={this.handleItemClick}
+                as={Link}
+                to="/ReviewsList"
+              >
+                Reviews
+              </Menu.Item>
             </Sidebar>
 
             <Sidebar.Pusher dimmed={sidebarOpened}>
@@ -373,10 +388,7 @@ MobileContainer.propTypes = {
 };
 
 const Navbar = ({ children }) => (
-  /* Heads up!
-   * For large applications it may not be best option to put all page into these containers at
-   * they will be rendered twice for SSR.
-   */
+
   <MediaContextProvider>
     <DesktopContainer>{children}</DesktopContainer>
     <MobileContainer>{children}</MobileContainer>

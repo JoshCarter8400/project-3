@@ -14,7 +14,7 @@ import "semantic-ui-css/semantic.min.css";
 import { Link } from 'react-router-dom';
 import AnimatedLogo from '../components/AnimatedLogo';
 
-const { MediaContextProvider, Media } = createMedia({
+const { Media } = createMedia({
   breakpoints: {
     mobile: 0,
     tablet: 768,
