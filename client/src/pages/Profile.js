@@ -70,9 +70,6 @@ const Profile = () => {
               <Header dividing size="huge" as="h1">
                 Dashboard
               </Header>
-              Coming soon to your plate!
-              {/* Future dashboard
-              
               <Segment color="blue" inverted>
                 <Button
                   icon
@@ -86,6 +83,9 @@ const Profile = () => {
                   Order History
                 </Button>
               </Segment>
+              {/* Future dashboard
+              
+              
               <Segment color="blue" inverted>
                 <Button
                   icon
