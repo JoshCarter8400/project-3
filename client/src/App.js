@@ -17,6 +17,7 @@ import Services from './pages/Services';
 import Detail from './pages/Detail';
 import Success from './pages/Success';
 import Logout from './pages/Logout';
+import Cart from './pages/Cart';
 
 //import components
 
@@ -25,7 +26,6 @@ import Footer from './components/Footer/index';
 import TermsAndConditions from './components/TermsAndConditions/index';
 import ReviewForm from './components/ReviewForm';
 import ReviewsList from './components/ReviewsList';
-import Cart from './components/Cart';
 
 const client = new ApolloClient({
   request: (operation) => {
