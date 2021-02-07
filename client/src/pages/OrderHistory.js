@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
-import { QUERY_ME } from '../utils/queries';
+import { QUERY_USER } from '../utils/queries';
 import { Button, Grid, Header, Image, Segment } from 'semantic-ui-react';
 
 const OrderHistory = () => {
-  const { data } = useQuery(QUERY_ME);
+  const { data } = useQuery(QUERY_USER);
   let user;
 
   if (data) {

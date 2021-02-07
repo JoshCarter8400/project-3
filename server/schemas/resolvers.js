@@ -5,16 +5,6 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
-    me: async (parent, args, context) => {
-      if (context.user) {
-        const userData = await User.findOne({ _id: context.user._id })
-          .select('-__v -password')
-          .populate('reviews');
-
-        return userData;
-      }
-      throw new AuthenticationError('Not logged in');
-    },
     reviews: async () => {
       return Review.find().sort({ createdAt: -1 });
     },
@@ -23,10 +13,9 @@ const resolvers = {
     },
     user: async (parent, args, context) => {
       if (context.user) {
-        const user = await User.findById(context.user._id).populate({
-          path: 'orders.services',
-          populate: 'services',
-        });
+        const user = await User.findById(context.user._id)
+          .populate({ path: 'orders.services' })
+          .populate('reviews');
 
         user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
 
@@ -43,7 +32,9 @@ const resolvers = {
     },
     order: async (parent, { _id }, context) => {
       if (context.user) {
-        const user = await User.findById(context.user._id);
+        const user = await User.findById(context.user._id).populate({
+          path: 'orders.services'
+        });
 
         return user.orders.id(_id);
       }

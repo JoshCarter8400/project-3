@@ -1,34 +1,12 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/react-hooks";
 import { ADD_REVIEW } from "../../utils/mutations";
-import { QUERY_REVIEWS, QUERY_ME } from "../../utils/queries";
 import { Form, Icon, Segment, Image, Header, Container } from "semantic-ui-react";
 
 const ReviewForm = () => {
   const [reviewText, setText] = useState("");
   const [characterCount, setCharacterCount] = useState(0);
-  const [addReview, { error }] = useMutation(ADD_REVIEW, {
-    update(cache, { data: { addReview } }) {
-      try {
-        // read what's currently in the cache  // could potentially not exist yet, so wrap in a try...catch
-        const { reviews } = cache.readQuery({ query: QUERY_REVIEWS });
-
-        // prepend the newest thought to the front of the array
-        cache.writeQuery({
-          query: QUERY_REVIEWS,
-          data: { reviews: [addReview, ...reviews] },
-        });
-      } catch (e) {
-        console.error(e);
-      }
-      // update me object's cache, appending new thought to the end of the array
-      const { me } = cache.readQuery({ query: QUERY_ME });
-      cache.writeQuery({
-        query: QUERY_ME,
-        data: { me: { ...me, reviews: [...me.reviews, addReview] } },
-      });
-    },
-  });
+  const [addReview, { error }] = useMutation(ADD_REVIEW);
 
   const handleChange = (event) => {
     if (event.target.value.length <= 300) {
