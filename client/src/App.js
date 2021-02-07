@@ -16,6 +16,7 @@ import SingleReview from './pages/SingleReview';
 import Services from './pages/Services';
 import Detail from './pages/Detail';
 import Success from './pages/Success';
+import Logout from './pages/Logout';
 
 //import components
 
@@ -64,6 +65,7 @@ function App() {
                 <Route exact path="/ReviewsList" component={ReviewsList} />
                 <Route exact path="/cart" component={Cart} />
                 <Route exact path="/success" component={Success} />
+                <Route exact path="/logout" component={Logout} />
               </Switch>
               <Footer />
             </Navbar>

@@ -10,7 +10,7 @@ function Success() {
   useEffect(() => {
     async function saveOrder() {
       const cart = await idbPromise('cart', 'get');
-      const services = cart.map(item => item._id);
+      const services = cart.map((item) => item._id);
 
       if (services.length) {
         const { data } = await addOrder({ variables: { services } });
@@ -21,9 +21,9 @@ function Success() {
         });
       }
 
-      // setTimeout(() => {
-      //   window.location.assign('/');
-      // }, 3000);
+      setTimeout(() => {
+        window.location.assign('/');
+      }, 3000);
     }
     saveOrder();
   }, [addOrder]);
