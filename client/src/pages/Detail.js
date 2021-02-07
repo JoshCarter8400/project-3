@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { idbPromise } from '../utils/helpers';
 import { useSelector, useDispatch } from 'react-redux';
-import Cart from '../components/Cart';
 import {
   REMOVE_FROM_CART,
   UPDATE_CART_QUANTITY,
@@ -135,7 +134,6 @@ const Detail = () => {
           www.flaticon.com
         </a>
       </p>
-      <Cart />
     </>
   );
 };

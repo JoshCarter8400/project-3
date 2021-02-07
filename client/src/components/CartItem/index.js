@@ -1,14 +1,11 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY } from '../../utils/actions';
 import { idbPromise } from '../../utils/helpers';
 import { Image, Segment, Input, Button, Label } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 
 const CartItem = ({ item }) => {
-  const state = useSelector((state) => {
-    return state;
-  });
 
   const dispatch = useDispatch();
 

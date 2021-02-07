@@ -27,7 +27,7 @@ function AnimatedLogo() {
         <div className="inner-carousel" style={transformOrigin}>
           {icons.map((icon, index, arr) => {
             const deg = index * 360 / arr.length;
-            return <img src={`/images/${icon}.svg`} alt="" style={{ transform: `rotateY(${deg}deg)`, ...transformOrigin }} />;
+            return <img src={`/images/${icon}.svg`} key={index} alt="" style={{ transform: `rotateY(${deg}deg)`, ...transformOrigin }} />;
           })}
         </div>
       </div>
