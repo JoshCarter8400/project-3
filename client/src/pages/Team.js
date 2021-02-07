@@ -53,7 +53,7 @@ const Team = () => (
                 </a>
               </Card.Content>
               <Card.Content extra>
-                <a href="/">
+                <a href="mailto:joshcarter8400@gmail.com">
                   <Icon name="mail" />
                   joshcarter8400@gmail.com
                 </a>
@@ -88,7 +88,7 @@ const Team = () => (
                 </a>
               </Card.Content>
               <Card.Content extra>
-                <a href="/">
+                <a href="mailto:csouthwick@live.com">
                   <Icon name="mail" />
                   csouthwick@live.com
                 </a>
@@ -121,7 +121,7 @@ const Team = () => (
               <Card.Content>
                 <Card.Header>Developing since 2020</Card.Header>
                 <Card.Meta>
-                <a href="/">                  
+                <a href="https://mighty-peak-14092.herokuapp.com/">                  
                   Portfolio
                 </a>
                 </Card.Meta>
@@ -140,7 +140,7 @@ const Team = () => (
                 </a>
               </Card.Content>
               <Card.Content extra>
-                <a href="/">
+                <a href="mailto:lucasmello.barros@gmail.com">
                   <Icon name="mail" />
                   lucasmello.barros@gmail.com
                 </a>
@@ -175,7 +175,7 @@ const Team = () => (
                 </a>
               </Card.Content>
               <Card.Content extra>
-                <a href="/">
+                <a href="mailto:gilabadio@gmail.com">
                   <Icon name="mail" />
                   gilabadio@gmail.com
                 </a>
