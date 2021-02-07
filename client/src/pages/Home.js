@@ -1,3 +1,4 @@
+import { createMedia } from "@artsy/fresnel";
 import PropTypes from "prop-types";
 import React from "react";
 import {
@@ -13,13 +14,17 @@ import "semantic-ui-css/semantic.min.css";
 import { Link } from 'react-router-dom';
 import AnimatedLogo from '../components/AnimatedLogo';
 
+const { MediaContextProvider, Media } = createMedia({
+  breakpoints: {
+    mobile: 0,
+    tablet: 768,
+    computer: 1024,
+  },
+});
 
 
-/* Heads up!
- * HomepageHeading uses inline styling, however it's not the best practice. Use CSS or styled
- * components for such things.
- */
 const HomepageHeading = ({ mobile }) => (
+  <Media greaterThan="mobile">
   <Container text>
     {(!mobile && <AnimatedLogo />)}
     <Header
@@ -44,6 +49,7 @@ const HomepageHeading = ({ mobile }) => (
       }}
     />
   </Container>
+  </Media>
 );
 
 HomepageHeading.propTypes = {
