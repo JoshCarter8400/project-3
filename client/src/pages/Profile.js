@@ -13,7 +13,7 @@ import {
 } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
 import Auth from '../utils/auth';
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Profile = () => {
   // individual modal var
