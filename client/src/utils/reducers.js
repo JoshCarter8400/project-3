@@ -4,7 +4,7 @@ import {
   ADD_MULTIPLE_TO_CART,
   REMOVE_FROM_CART,
   UPDATE_CART_QUANTITY,
-  CLEAR_CART
+  CLEAR_CART,
 } from './actions';
 
 const initialState = {

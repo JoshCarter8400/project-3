@@ -13,6 +13,7 @@ import {
 import 'semantic-ui-css/semantic.min.css';
 import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
+import Logout from '../../pages/Logout';
 
 const { MediaContextProvider, Media } = createMedia({
   breakpoints: {
@@ -125,7 +126,7 @@ class DesktopContainer extends Component {
                     <Button
                       as={Link}
                       to="/"
-                      onClick={() => Auth.logout()}
+                      onClick={() => Auth.logout(Logout)}
                       inverted={!fixed}
                       style={{ marginLeft: '0.5em' }}
                     >
