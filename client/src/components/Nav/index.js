@@ -38,6 +38,7 @@ class DesktopContainer extends Component {
     const { fixed } = this.state;
     const { activeItem } = this.state;
     if (Auth.loggedIn()) {
+      const username = Auth.getProfile().data.username;
       return (
         <Media greaterThan="mobile">
           <Visibility
@@ -119,7 +120,7 @@ class DesktopContainer extends Component {
                       to="/profile"
                     >
                       <Icon name="user" />
-                      Username
+                      {username}
                     </Button>
                     <Button
                       as={Link}
@@ -171,7 +172,6 @@ class DesktopContainer extends Component {
                     active={activeItem === 'home'}
                     onClick={this.handleItemClick}
                     as={Link}
-                    active
                     to="/"
                   >
                     Home
