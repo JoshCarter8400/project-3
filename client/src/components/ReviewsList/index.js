@@ -58,15 +58,14 @@ const ReviewsList = () => {
             <Grid.Column width={10}>
               {reviews &&
                 reviews.map((review) => (
-                  <Segment>
-                    <Card.Content key={review._id}>
+                  <Segment key={review._id}>
+                    <Card.Content>
                       <Card.Header>
                         <Header as="h4">
                           <Label
                             as={Link}
                             to={`/profile/${review.username}`}
                             style={{ fontWeight: 600 }}
-                            compact
                           >
                             {review.username}
                           </Label>

@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
-import CartItem from '../CartItem';
-import Auth from '../../utils/auth';
-import { ADD_MULTIPLE_TO_CART } from '../../utils/actions';
-import { idbPromise } from '../../utils/helpers';
-import { QUERY_CHECKOUT } from '../../utils/queries';
+import CartItem from '../components/CartItem';
+import Auth from '../utils/auth';
+import { ADD_MULTIPLE_TO_CART } from '../utils/actions';
+import { idbPromise } from '../utils/helpers';
+import { QUERY_CHECKOUT } from '../utils/queries';
 import { useLazyQuery } from '@apollo/react-hooks';
 import { loadStripe } from '@stripe/stripe-js';
 import { useSelector, useDispatch } from 'react-redux';

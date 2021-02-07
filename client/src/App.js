@@ -16,6 +16,8 @@ import SingleReview from './pages/SingleReview';
 import Services from './pages/Services';
 import Detail from './pages/Detail';
 import Success from './pages/Success';
+import Logout from './pages/Logout';
+import Cart from './pages/Cart';
 
 //import components
 
@@ -24,7 +26,6 @@ import Footer from './components/Footer/index';
 import TermsAndConditions from './components/TermsAndConditions/index';
 import ReviewForm from './components/ReviewForm';
 import ReviewsList from './components/ReviewsList';
-import Cart from './components/Cart';
 
 const client = new ApolloClient({
   request: (operation) => {
@@ -44,28 +45,30 @@ function App() {
       <Router>
         <>
           <Provider store={store}>
-            <Navbar />
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/login" component={LoginForm} />
-              <Route exact path="/signup" component={SignUpForm} />
-              <Route exact path="/profile" component={Profile} />
-              <Route exact path="/team" component={Team} />
-              <Route exact path="/orderHistory" component={OrderHistory} />
-              <Route exact path="/singleReview" component={SingleReview} />
-              <Route
-                exact
-                path="/termsAndConditions"
-                component={TermsAndConditions}
-              />
-              <Route exact path="/services" component={Services} />
-              <Route exact path="/services/:id" component={Detail} />
-              <Route exact path="/reviewForm" component={ReviewForm} />
-              <Route exact path="/ReviewsList" component={ReviewsList} />
-              <Route exact path="/cart" component={Cart} />
-              <Route exact path="/success" component={Success} />
-            </Switch>
-            <Footer />
+            <Navbar>
+              <Switch>
+                <Route exact path="/" component={Home} />
+                <Route exact path="/login" component={LoginForm} />
+                <Route exact path="/signup" component={SignUpForm} />
+                <Route exact path="/profile" component={Profile} />
+                <Route exact path="/team" component={Team} />
+                <Route exact path="/orderHistory" component={OrderHistory} />
+                <Route exact path="/singleReview" component={SingleReview} />
+                <Route
+                  exact
+                  path="/termsAndConditions"
+                  component={TermsAndConditions}
+                />
+                <Route exact path="/services" component={Services} />
+                <Route exact path="/services/:id" component={Detail} />
+                <Route exact path="/reviewForm" component={ReviewForm} />
+                <Route exact path="/ReviewsList" component={ReviewsList} />
+                <Route exact path="/cart" component={Cart} />
+                <Route exact path="/success" component={Success} />
+                <Route exact path="/logout" component={Logout} />
+              </Switch>
+              <Footer />
+            </Navbar>
           </Provider>
         </>
       </Router>

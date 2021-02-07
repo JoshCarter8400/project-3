@@ -13,6 +13,7 @@ import {
 import "semantic-ui-css/semantic.min.css";
 import { Link } from "react-router-dom";
 import Auth from "../../utils/auth";
+import Logout from "../../pages/Logout";
 
 const { MediaContextProvider, Media } = createMedia({
   breakpoints: {
@@ -22,10 +23,6 @@ const { MediaContextProvider, Media } = createMedia({
   },
 });
 
-/* Heads up!
- * Neither Semantic UI nor Semantic UI React offer a responsive navbar, however, it can be implemented easily.
- * It can be more complicated, but you can create really flexible markup.
- */
 class DesktopContainer extends Component {
   state = {};
 
@@ -38,6 +35,7 @@ class DesktopContainer extends Component {
     const { fixed } = this.state;
     const { activeItem } = this.state;
     if (Auth.loggedIn()) {
+      const username = Auth.getProfile().data.username;
       return (
         <Media greaterThan="mobile">
           <Visibility
@@ -98,8 +96,9 @@ class DesktopContainer extends Component {
                     as={Link}
                     to="/ReviewsList"
                   >
-                    Reviews List
+                    Reviews
                   </Menu.Item>
+
                   <Menu.Item position="right">
                     <Button
                       icon
@@ -110,12 +109,12 @@ class DesktopContainer extends Component {
                       to="/profile"
                     >
                       <Icon name="user" />
-                      Username
+                      {username}
                     </Button>
                     <Button
                       as={Link}
                       to="/"
-                      onClick={() => Auth.logout()}
+                      onClick={() => Auth.logout(Logout)}
                       inverted={!fixed}
                       style={{ marginLeft: "0.5em" }}
                     >
@@ -162,7 +161,6 @@ class DesktopContainer extends Component {
                     active={activeItem === "home"}
                     onClick={this.handleItemClick}
                     as={Link}
-                    active
                     to="/"
                   >
                     Home
@@ -192,7 +190,7 @@ class DesktopContainer extends Component {
                     as={Link}
                     to="/ReviewsList"
                   >
-                    Reviews List
+                    Reviews
                   </Menu.Item>
                   <Menu.Item position="right">
                     <Button as={Link} inverted={!fixed} to="/login">
@@ -256,8 +254,14 @@ class MobileContainer extends Component {
               <Menu.Item as={Link} to="/team">
                 Team
               </Menu.Item>
+              <Menu.Item as={Link} to="/reviewForm">
+                Review Form
+              </Menu.Item>
               <Menu.Item as={Link} to="/" onClick={() => Auth.logout()}>
                 LogOut
+              </Menu.Item>
+              <Menu.Item as={Link} to="/ReviewsList">
+                Reviews
               </Menu.Item>
               <Button
                 icon
@@ -336,6 +340,14 @@ class MobileContainer extends Component {
               <Menu.Item as={Link} to="/signup">
                 Sign Up
               </Menu.Item>
+              <Menu.Item
+                name="reviewsList"
+                onClick={this.handleItemClick}
+                as={Link}
+                to="/ReviewsList"
+              >
+                Reviews
+              </Menu.Item>
             </Sidebar>
 
             <Sidebar.Pusher dimmed={sidebarOpened}>
@@ -376,10 +388,6 @@ MobileContainer.propTypes = {
 };
 
 const Navbar = ({ children }) => (
-  /* Heads up!
-   * For large applications it may not be best option to put all page into these containers at
-   * they will be rendered twice for SSR.
-   */
   <MediaContextProvider>
     <DesktopContainer>{children}</DesktopContainer>
     <MobileContainer>{children}</MobileContainer>

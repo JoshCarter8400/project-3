@@ -2,7 +2,7 @@ import React from "react";
 import {
   Grid,
   Header,
-  Image,
+  // Image,
   Input,
   Modal,
   Card,
@@ -12,6 +12,7 @@ import {
   Form,
 } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
+import Auth from '../utils/auth';
 import { Link } from "react-router-dom";
 
 const Profile = () => {
@@ -20,6 +21,7 @@ const Profile = () => {
   const [changeUsername, setUsernameOpen] = React.useState(false);
   const [changePassword, setPasswordOpen] = React.useState(false);
   const [editDescription, setDescriptionOpen] = React.useState(false);
+  const userData = Auth.getProfile().data;
 
   return (
     <div>
@@ -29,11 +31,11 @@ const Profile = () => {
             <Segment>
               <Grid.Row>
                 <Header dividing size="huge" as="h1">
-                  Username
+                  {userData.username}
                 </Header>
               </Grid.Row>
               <Card fluid>
-                <Image src="\images\profile-picture.jpg" wrapped ui={false} />
+                {/* <Image src="\images\profile-picture.jpg" wrapped ui={false} /> */}
                 {/* Future edit button
                 
                 <Button
@@ -48,17 +50,17 @@ const Profile = () => {
                    <Button.Content hidden>Edit Description</Button.Content>
                    
                 </Button> */}
-                <Card.Content>
-                  <Card.Header>John Doe</Card.Header>
+                {/* <Card.Content>
+                  <Card.Header>{userData.username}</Card.Header>
                   <Card.Meta>
                     <span className="date">Joined in 2015</span>
                   </Card.Meta>
                   <Card.Description>Profile Description.</Card.Description>
-                </Card.Content>
-                <Card.Content extra>
-                  <a>
+                </Card.Content> */}
+                <Card.Content>
+                  <a href={"mailto:" + userData.email}>
                     <Icon name="mail" />
-                    email@email.com
+                    {userData.email}
                   </a>
                 </Card.Content>
               </Card>
@@ -70,9 +72,6 @@ const Profile = () => {
               <Header dividing size="huge" as="h1">
                 Dashboard
               </Header>
-              Coming soon to your plate!
-              {/* Future dashboard
-              
               <Segment color="blue" inverted>
                 <Button
                   icon
@@ -86,6 +85,9 @@ const Profile = () => {
                   Order History
                 </Button>
               </Segment>
+              {/* Future dashboard
+              
+              
               <Segment color="blue" inverted>
                 <Button
                   icon

@@ -1,39 +1,36 @@
-# Project-3
+# The Web Buffet
 
 ## Description
 
-pending
+People are often frustrated with how complex making a responsive intuitive website can be. With Web Buffet’s hand picked developers, making a website is as easy as ordering food online. No longer will you have to watch countless tutorials or spend hours trying to fix your websites bugs and issues. Web Buffet makes website development and maintenance quick , affordable and more importantly hassle free. You can visit this site as a guest to view our services, reviews, and our team. Once logged in you can add services to your cart, leave reviews for services, and checkout via the Stripe API.
 
 ## Table of Contents
 
-- [Installation](#installation)
-- [Usage](#usage)
+- [Tools](#Tools)
 - [Demonstration](#Demonstration)
+- [Questions](#questions)
 - [Credits](#credits)
 - [License](#license)
-- [Questions](#questions)
 
-## Installation
+## Tools
 
-Install Node.js
-
-    pending
-
-## Usage
-
-pending
+- MongoDB/Mongoose
+- Express
+- React(hooks)
+- Node
+- React-Router
+- Redux
+- React Semantic-Ui
+- Apollo Server Express
+- Apollo Boost
+- GraphQL
+- CSS Animations
+- Stripe API
+- JSON web tokens
 
 ## Demonstration
 
-    https://drive.google.com/file/d/1spHqFZCudVlDnjfULJG-ZtPPCBIrOILy/view
-
-## Credits
-
-Made with ❤️ by: Chris Southwick, Gil Abadio, Josh Carter and Lucas Barros
-
-## License
-
-...
+[Click here to launch application](https://glacial-atoll-63430.herokuapp.com/)
 
 ## Questions
 
@@ -52,3 +49,14 @@ Made with ❤️ by: Chris Southwick, Gil Abadio, Josh Carter and Lucas Barros
 **[Lucas Github](https://github.com/lucasmbarros)**
 
 - Email: lucasmello.barros@gmail.com
+
+## Credits
+
+Made with ❤️ by: Chris Southwick, Gil Abadio, Josh Carter and Lucas Barros
+
+
+## License
+
+MIT
+
+<img src="client\public\images\web-buffet-screenshot.png">

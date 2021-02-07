@@ -49,45 +49,30 @@ export const QUERY_REVIEW = gql`
 `;
 
 export const QUERY_USER = gql`
-  query user($username: String) {
-    user(username: $username) {
+{
+  user {
+    _id
+    username
+    email
+    reviews {
       _id
-      username
-      email
-      reviews {
+      reviewText
+      createdAt
+    }
+    orders {
+      _id
+      purchaseDate
+      services {
         _id
-        reviewText
-        createdAt
-        orders {
-          _id
-          purchaseDate
-          services {
-            _id
-            name
-            description
-            price
-            quantity
-            image
-          }
+        name
+        description
+        price
+        quantity
+        image
         }
       }
     }
-  }
-`;
-
-export const QUERY_ME = gql`
-  {
-    me {
-      _id
-      username
-      email
-      reviews {
-        _id
-        reviewText
-        createdAt
-      }
-    }
-  }
+}
 `;
 
 export const QUERY_CHECKOUT = gql`
