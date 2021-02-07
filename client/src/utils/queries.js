@@ -86,6 +86,18 @@ export const QUERY_ME = gql`
         reviewText
         createdAt
       }
+      orders {
+        _id
+        purchaseDate
+        services {
+          _id
+          name
+          description
+          price
+          quantity
+          image
+        }
+      }
     }
   }
 `;

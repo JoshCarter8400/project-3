@@ -4,8 +4,7 @@ import {
   ADD_MULTIPLE_TO_CART,
   REMOVE_FROM_CART,
   UPDATE_CART_QUANTITY,
-  CLEAR_CART,
-  ADD_ORDER,
+  CLEAR_CART
 } from './actions';
 
 const initialState = {
@@ -45,12 +44,6 @@ export const reducer = (state = initialState, action) => {
           }
           return service;
         }),
-      };
-
-    case ADD_ORDER:
-      return {
-        ...state,
-        orders: [...action.orders],
       };
 
     case REMOVE_FROM_CART:
