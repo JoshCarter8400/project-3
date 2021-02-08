@@ -30,7 +30,7 @@ const Team = () => (
           </Grid.Column>
           <Grid.Column floated="right" width={6}>
             <Card>
-              <Image src="/images/josh.jfif" wrapped ui={false} />
+              <Image src="/images/josh.jpg" wrapped ui={false} />
               <Card.Content>
                 <Card.Header>Developing since 2020</Card.Header>
                 <Card.Meta>
@@ -65,7 +65,7 @@ const Team = () => (
         <Grid.Row>
           <Grid.Column floated="left" width={6}>
             <Card>
-              <Image src="/images/chris.jfif" wrapped ui={false} />
+              <Image src="/images/chris.jpg" wrapped ui={false} />
               <Card.Content>
                 <Card.Header>Developing since 2014</Card.Header>
                 <Card.Meta>
